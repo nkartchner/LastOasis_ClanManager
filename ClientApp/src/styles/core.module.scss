@@ -1,0 +1,9 @@
+@import "normalize";
+@import "variables";
+@import "utils";
+@mixin test() {
+    body {
+        height: 100%;
+    }
+}
+@include test();

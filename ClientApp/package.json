@@ -1,0 +1,93 @@
+{
+    "name": "clanmanager",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@aspnet/signalr": "3.0.0-preview6.19307.2",
+        "@ckeditor/ckeditor5-build-classic": "^18.0.0",
+        "@ckeditor/ckeditor5-react": "^2.1.0",
+        "@material-ui/core": "4.9.10",
+        "@material-ui/icons": "4.9.1",
+        "@microsoft/signalr": "^3.1.3",
+        "@reduxjs/toolkit": "^1.3.4",
+        "@testing-library/jest-dom": "^5.5.0",
+        "@testing-library/react": "^10.0.2",
+        "@testing-library/user-event": "^10.0.1",
+        "axios": "0.19.2",
+        "clsx": "^1.1.0",
+        "connected-react-router": "6.8.0",
+        "history": "4.10.1",
+        "node-sass": "4.13.1",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "react-quill": "^1.3.5",
+        "react-redux": "7.2.0",
+        "react-router": "5.1.2",
+        "react-router-dom": "5.1.2",
+        "react-scripts": "^3.4.1",
+        "react-select": "3.1.0",
+        "react-timeago": "^4.4.0",
+        "redux": "4.0.5",
+        "redux-persist": "6.0.0",
+        "redux-thunk": "2.3.0",
+        "reselect": "^4.0.0",
+        "rxjs": "^6.5.5",
+        "web-push": "3.4.3"
+    },
+    "devDependencies": {
+        "@types/faker": "^4.1.11",
+        "@types/history": "4.7.5",
+        "@types/jest": "25.2.1",
+        "@types/node": "13.11.1",
+        "@types/react": "16.9.34",
+        "@types/react-dom": "16.9.6",
+        "@types/react-redux": "7.1.7",
+        "@types/react-router": "5.1.5",
+        "@types/react-router-dom": "5.1.4",
+        "@types/react-timeago": "^4.1.1",
+        "ajv": "^6.12.0",
+        "cross-env": "7.0.2",
+        "eslint": "^6.8.0",
+        "eslint-plugin-flowtype": "4.7.0",
+        "eslint-plugin-import": "2.20.2",
+        "eslint-plugin-jsx-a11y": "6.2.3",
+        "eslint-plugin-react": "7.19.0",
+        "faker": "^4.1.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.1.3",
+        "prettier": "^2.0.4",
+        "typescript": "3.8.3",
+        "typescript-eslint-parser": "22.0.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "cross-env CI=true react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "lint": "eslint ./src/**/*.ts ./src/**/*.tsx"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
+    }
+}
