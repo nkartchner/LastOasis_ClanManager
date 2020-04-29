@@ -1,7 +1,9 @@
 import * as User from "./user";
+import * as Clan from "./clan";
 import { RouterState } from "connected-react-router";
 export interface ApplicationState {
     user: User.UserState | undefined;
+    clan: Clan.ClanState | undefined;
     router: RouterState | undefined;
 }
 
@@ -10,6 +12,7 @@ export interface ApplicationState {
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
     user: User.reducer,
+    clan: Clan.reducer,
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are

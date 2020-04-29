@@ -1,32 +1,42 @@
 import React from "react";
 import Axios from "axios";
+// import PostList from "./Posts/PostList";
 import Grid from "@material-ui/core/Grid";
-import { useSelector } from "react-redux";
 import { selectUser } from "../../store/user";
 import { RouteComponentProps } from "react-router";
 import Container from "@material-ui/core/Container";
+import ClanDetailsHeader from "./ClanDetailsHeader";
 import Typography from "@material-ui/core/Typography";
+import { useSelector, useDispatch } from "react-redux";
 import MembersListShell from "./Members/MembersListShell";
 import RequestListShell from "./Requests/RequestListShell";
+import { selectClan, deSelectClan } from "../../store/clan";
 import AllegianceListShell from "./Allegiances/AllegianceListShell";
 import { Clan, RequestToJoin, User, Allegiance } from "../../models";
-import ClanDetailsHeader from "./ClanDetailsHeader";
-import PostList from "./Posts/PostList";
 
 type Props = RouteComponentProps<{ clanId: string }>;
 
 const ClanDetails: React.FC<Props> = (props) => {
+    const { clanId } = props.match.params;
+    const dispatch = useDispatch();
     const user = useSelector(selectUser);
     const [clan, setClan] = React.useState<Clan | null>(null);
     React.useEffect(() => {
-        Axios.get<Clan>(`/api/clan/${props.match.params.clanId}`)
-            .then(({ data }) => setClan(data))
-            .catch((err) =>
-                console.log(
-                    "Something went wrong when trying to get the clan",
-                    err
-                )
-            );
+        if (clanId) {
+            dispatch(selectClan(+clanId));
+            Axios.get<Clan>(`/api/clan/${clanId}`)
+                .then(({ data }) => setClan(data))
+                .catch((err) =>
+                    console.log(
+                        "Something went wrong when trying to get the clan",
+                        err
+                    )
+                );
+        }
+        return () => {
+            console.log("Dispatching");
+            dispatch(deSelectClan());
+        };
     }, [props.match.params.clanId]);
 
     const navigateTo = (path: string) => {
@@ -133,7 +143,7 @@ const ClanDetails: React.FC<Props> = (props) => {
                     </Grid>
                 </Grid>
                 <Grid style={{ padding: 10 }} item xs={12}>
-                    <PostList clanId={clan.id} user={user} />
+                    {/* <PostList clanId={clan.id} user={user} /> */}
                 </Grid>
             </Grid>
         </Container>

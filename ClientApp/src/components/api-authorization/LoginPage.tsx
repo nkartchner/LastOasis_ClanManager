@@ -12,9 +12,11 @@ const LoginPage: React.FC = () => {
     const handleSubmit = () => {
         dispatch(actionCreators.login({ Email: email, Password: password }));
     };
-
+    const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.keyCode === 13 /** ENTER */) handleSubmit();
+    };
     return (
-        <div style={{ padding: 10 }}>
+        <form style={{ padding: 10 }}>
             <Grid
                 container
                 direction="column"
@@ -35,6 +37,7 @@ const LoginPage: React.FC = () => {
                         label="Email"
                         value={email}
                         autoComplete="email"
+                        onKeyDown={handleKeydown}
                         onChange={(e) => setEmail(e.target.value)}
                         color="primary"
                         variant="outlined"
@@ -45,6 +48,8 @@ const LoginPage: React.FC = () => {
                         label="Password"
                         value={password}
                         autoComplete="password"
+                        type="password"
+                        onKeyDown={handleKeydown}
                         onChange={(e) => setPassword(e.target.value)}
                         color="primary"
                         variant="outlined"
@@ -60,7 +65,7 @@ const LoginPage: React.FC = () => {
                     </Button>
                 </Grid>
             </Grid>
-        </div>
+        </form>
     );
 };
 

@@ -1,24 +1,21 @@
+import {
+    selectClanId,
+    selectUserName,
+    actionCreators,
+    selectIsAuthenticated,
+} from "../store/user";
+import clsx from "clsx";
 import React from "react";
 import NavMenu from "./NavMenu";
 import MainRouter from "./MainRouter";
+import SidenavMenu from "./SidenavMenu";
 import { useHistory } from "react-router";
 import List from "@material-ui/core/List";
 import Drawer from "@material-ui/core/Drawer";
-import ListItem from "@material-ui/core/ListItem";
-import { GenerateMenuList } from "../models/menus";
 import LoginMenu from "./api-authorization/LoginMenu";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import { Toolbar, AppBar, Typography } from "@material-ui/core";
-import clsx from "clsx";
 import { useSelector, useDispatch } from "react-redux";
-import {
-    selectIsAuthenticated,
-    selectUserName,
-    actionCreators,
-    selectClanId,
-} from "../store/user";
+import { Toolbar, AppBar, Typography } from "@material-ui/core";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -68,6 +65,21 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: 10,
             flexGrow: 1,
         },
+        rotateOpen: {
+            transition: theme.transitions.create("transform", {
+                duration: theme.transitions.duration.short,
+            }),
+            transform: "rotate(90deg)",
+        },
+        rotateClose: {
+            transition: theme.transitions.create("transform", {
+                duration: theme.transitions.duration.short,
+            }),
+            transform: "rotate(0deg)",
+        },
+        nestedIcon: {
+            minWidth: "unset",
+        },
     })
 );
 const drawerWidth = 240;
@@ -103,18 +115,7 @@ const Sidenav = () => {
 
     const authenticatedList = (
         <List>
-            {GenerateMenuList(clanId).map((MenuItem, index) => (
-                <ListItem
-                    button
-                    onClick={redirectTo(MenuItem.path)}
-                    key={index}
-                >
-                    <ListItemIcon>
-                        <MenuItem.icon />
-                    </ListItemIcon>
-                    <ListItemText primary={MenuItem.label} />
-                </ListItem>
-            ))}
+            <SidenavMenu clanId={clanId} redirectTo={redirectTo} />
         </List>
     );
 

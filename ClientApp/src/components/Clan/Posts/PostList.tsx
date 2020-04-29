@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { Post } from "../../../models/post";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Typography } from "@material-ui/core";
 import { User } from "../../../models";
 import PostForm from "./PostForm";
 import TimeAgo from "react-timeago";
@@ -17,7 +17,7 @@ const PostList: React.FC<Props> = ({ clanId, user }) => {
         Axios.get<Post[]>(`/api/post/clan/${clanId}`)
             .then((response) => setPosts(response.data))
             .catch((err) => console.log(err));
-    }, []);
+    }, [clanId]);
 
     const handleEdit = (post: Post) => {
         setSelectedPost(post);
@@ -70,7 +70,11 @@ const PostList: React.FC<Props> = ({ clanId, user }) => {
                         )}
                     </Grid>
                     <Grid item xs={12}>
-                        {p.content}
+                        <Typography
+                            variant="body1"
+                            color="textPrimary"
+                            dangerouslySetInnerHTML={{ __html: p.content }}
+                        />
                     </Grid>
                 </Grid>
             ))}
