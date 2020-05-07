@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using ClanManager.Models;
 using ClanManager.Services;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 
 namespace ClanManager
 {
@@ -104,8 +105,8 @@ namespace ClanManager
 
                 if (env.IsDevelopment())
                 {
-                    // spa.UseReactDevelopmentServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
                 }
             });
         }

@@ -12,31 +12,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
 import TablePagination from "@material-ui/core/TablePagination";
 
-interface Column {
-    id: keyof Clan;
-    label: string;
-    minWidth?: number;
-    align?: "right";
-    format?: (value: number) => string;
-}
-
-const columns: Column[] = [
-    { id: "name", label: "Name", minWidth: 170 },
-    { id: "color", label: "Color", minWidth: 100 },
-    {
-        id: "members",
-        label: "Members",
-        minWidth: 170,
-        align: "right",
-    },
-    {
-        id: "allegiances",
-        label: "Allegiances",
-        minWidth: 170,
-        align: "right",
-    },
-];
-
 const useStyles = makeStyles({
     root: {
         width: "100%",
@@ -77,15 +52,15 @@ const ClanList: React.FC<RouteComponentProps> = ({ history }) => {
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead color="primary">
                         <TableRow>
-                            {columns.map((column) => (
-                                <TableCell
-                                    key={column.id}
-                                    align={column.align}
-                                    style={{ minWidth: column.minWidth }}
-                                >
-                                    {column.label}
-                                </TableCell>
-                            ))}
+                            <TableCell style={{ minWidth: 170 }}>
+                                Name
+                            </TableCell>
+                            <TableCell style={{ minWidth: 170 }}>
+                                Members
+                            </TableCell>
+                            <TableCell style={{ minWidth: 170 }}>
+                                Allegiances
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -100,22 +75,17 @@ const ClanList: React.FC<RouteComponentProps> = ({ history }) => {
                                         hover
                                         onClick={handleRedirect(clan.id)}
                                         role="checkbox"
+                                        style={{ backgroundColor: clan.color }}
                                         tabIndex={-1}
                                         key={clan.id}
                                     >
-                                        {columns.map((column) => {
-                                            const value = clan[column.id];
-                                            return (
-                                                <TableCell
-                                                    key={column.id}
-                                                    align={column.align}
-                                                >
-                                                    {Array.isArray(value)
-                                                        ? `${value.length}`
-                                                        : value}
-                                                </TableCell>
-                                            );
-                                        })}
+                                        <TableCell>{clan.name}</TableCell>
+                                        <TableCell>
+                                            {clan.members.length}
+                                        </TableCell>
+                                        <TableCell align="right">
+                                            {clan.allegiances.length}
+                                        </TableCell>
                                     </TableRow>
                                 );
                             })}
