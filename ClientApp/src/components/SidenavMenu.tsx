@@ -7,7 +7,7 @@ import Dashboard from "@material-ui/icons/Dashboard";
 import PeopleSharp from "@material-ui/icons/PeopleSharp";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-
+import BlurCircularIcon from "@material-ui/icons/BlurCircular";
 interface Props {
     clanId: number | null;
     redirectTo: (path: string) => () => void;
@@ -36,7 +36,12 @@ const SidenavMenu: React.FC<Props> = ({ clanId, redirectTo }) => {
                 </ListItemIcon>
                 <ListItemText primary={"Clans"} />
             </ListItem>
-
+            <ListItem button onClick={redirectTo("/techtree")}>
+                <ListItemIcon>
+                    <BlurCircularIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Tech Tree"} />
+            </ListItem>
             {clanId ? (
                 <ListItem button onClick={redirectTo(`/clans/${clanId}`)}>
                     <ListItemIcon>

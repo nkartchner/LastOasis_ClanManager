@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
             ...theme.mixins.toolbar,
         },
         content: {
+            position: "relative",
             flexGrow: 1,
             padding: theme.spacing(10, 3, 3, 3),
             transition: theme.transitions.create("margin", {

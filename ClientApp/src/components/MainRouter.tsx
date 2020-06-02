@@ -9,6 +9,8 @@ import { Route, Switch, Redirect } from "react-router";
 import AuthRoute from "./api-authorization/AuthRoutes";
 import Register from "./api-authorization/RegisterPage";
 import UserListRouteShell from "./User/UserListRouteShell";
+// import TechTree from "./TechTree/TechTree";
+import TechTreeKonva from "./TechTree/TechTreeKonva";
 
 const MainRouter = () => {
     return (
@@ -19,6 +21,7 @@ const MainRouter = () => {
             <AuthRoute path="/profile" component={Profile} />
             <AuthRoute path="/clans" component={ClanList} />
             <AuthRoute path="/dashboard" component={Home} />
+            <AuthRoute path="/techtree" component={TechTreeKonva} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={LoginPage} />
             <Redirect to="/login" />
