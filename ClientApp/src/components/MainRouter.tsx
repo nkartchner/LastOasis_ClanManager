@@ -15,13 +15,13 @@ import TechTreeKonva from "./TechTree/TechTreeKonva";
 const MainRouter = () => {
     return (
         <Switch>
+            <Route path="/dashboard" component={TechTreeKonva} />
             <AuthRoute path="/users" component={UserListRouteShell} />
             <AuthRoute path="/clans/new" component={NewClanForm} />
             <AuthRoute path="/clans/:clanId" component={ClanNav} />
             <AuthRoute path="/profile" component={Profile} />
             <AuthRoute path="/clans" component={ClanList} />
-            <AuthRoute path="/dashboard" component={Home} />
-            <AuthRoute path="/techtree" component={TechTreeKonva} />
+            {/* <AuthRoute path="/dashboard" component={Home} /> */}
             <Route path="/register" component={Register} />
             <Route path="/login" component={LoginPage} />
             <Redirect to="/login" />

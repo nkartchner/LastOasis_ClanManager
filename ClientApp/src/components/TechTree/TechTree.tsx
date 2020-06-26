@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import * as images from "../../icons";
 import "./techTree.css";
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,70 +31,70 @@ const useStyles = makeStyles((theme) => ({
 const TechTree: React.FC = () => {
     const classes = useStyles();
     const parentRef = React.useRef<HTMLDivElement | null>(null);
-    const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
-    // const [location, setLocation] = React.useState();
+    // const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
+    // // const [location, setLocation] = React.useState();
 
-    React.useLayoutEffect(() => {
-        const canvas: HTMLCanvasElement | null = canvasRef.current;
-        const parent = parentRef.current;
-        if (canvas && parent) {
-            canvas.width = parent.offsetWidth - 48;
-            canvas.height = parent.offsetHeight - 48;
-            const ctx = canvas.getContext("2d");
-            if (ctx) {
-                ctx.strokeStyle = "white";
-                ctx.lineWidth = 4;
-                const h = canvas.height;
-                const angle = {
-                    h: 70,
-                    w: 70,
-                };
-                const imgSize = 85;
-                const imgOffset = imgSize / 2;
-                let andThenSome = 15;
-                let currentLineWidth = imgOffset;
-                let currentLineHeight = Math.round(h / 2);
+    // React.useLayoutEffect(() => {
+    //     const canvas: HTMLCanvasElement | null = canvasRef.current;
+    //     const parent = parentRef.current;
+    //     if (canvas && parent) {
+    //         canvas.width = parent.offsetWidth - 48;
+    //         canvas.height = parent.offsetHeight - 48;
+    //         const ctx = canvas.getContext("2d");
+    //         if (ctx) {
+    //             ctx.strokeStyle = "white";
+    //             ctx.lineWidth = 4;
+    //             const h = canvas.height;
+    //             const angle = {
+    //                 h: 70,
+    //                 w: 70,
+    //             };
+    //             const imgSize = 85;
+    //             const imgOffset = imgSize / 2;
+    //             let andThenSome = 15;
+    //             let currentLineWidth = imgOffset;
+    //             let currentLineHeight = Math.round(h / 2);
 
-                images.WalkerIcon(ctx, 0, currentLineHeight - imgOffset);
+    //             images.WalkerIcon(ctx, 0, currentLineHeight - imgOffset);
 
-                ctx.moveTo(currentLineWidth, currentLineHeight);
+    //             ctx.moveTo(currentLineWidth, currentLineHeight);
 
-                currentLineWidth += 100;
+    //             currentLineWidth += 100;
 
-                images.FireflyWalkerIcon(
-                    ctx,
-                    currentLineWidth,
-                    currentLineHeight - imgOffset
-                );
-                currentLineWidth = currentLineWidth + imgOffset + andThenSome;
+    //             images.FireflyWalkerIcon(
+    //                 ctx,
+    //                 currentLineWidth,
+    //                 currentLineHeight - imgOffset
+    //             );
+    //             currentLineWidth = currentLineWidth + imgOffset + andThenSome;
 
-                ctx.lineTo(currentLineWidth, currentLineHeight);
+    //             ctx.lineTo(currentLineWidth, currentLineHeight);
 
-                currentLineWidth += angle.w;
-                currentLineHeight -= angle.h;
-                ctx.lineTo(currentLineWidth, currentLineHeight);
+    //             currentLineWidth += angle.w;
+    //             currentLineHeight -= angle.h;
+    //             ctx.lineTo(currentLineWidth, currentLineHeight);
 
-                currentLineHeight -= 190;
-                ctx.lineTo(currentLineWidth, currentLineHeight);
+    //             currentLineHeight -= 190;
+    //             ctx.lineTo(currentLineWidth, currentLineHeight);
 
-                currentLineWidth += angle.w;
-                currentLineHeight -= angle.h;
-                ctx.lineTo(currentLineWidth, currentLineHeight);
+    //             currentLineWidth += angle.w;
+    //             currentLineHeight -= angle.h;
+    //             ctx.lineTo(currentLineWidth, currentLineHeight);
 
-                ctx.stroke();
-            }
-        }
-    }, [canvasRef]);
+    //             ctx.stroke();
+    //         }
+    //     }
+    // }, [canvasRef]);
 
-    const handleClick = () => {};
+    // const handleClick = () => {};
 
     return (
         <div className={classes.root} ref={parentRef}>
-            <canvas
+            {/* <canvas
                 style={{ border: "1px solid red" }}
                 ref={canvasRef}
                 onClick={handleClick}
-            />
+            /> */}
         </div>
     );
 };
