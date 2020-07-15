@@ -64,7 +64,7 @@ namespace ClanManager
 
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "client/build";
             });
         }
 
@@ -109,7 +109,7 @@ namespace ClanManager
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "client";
 
                 if (env.IsDevelopment())
                 {
