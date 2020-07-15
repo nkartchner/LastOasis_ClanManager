@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClanManager.Migrations
 {
-    public partial class FirstMigrations : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,7 @@ namespace ClanManager.Migrations
                     Color = table.Column<string>(nullable: false),
                     Flag = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValueSql: "getutcdate()"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -65,7 +65,6 @@ namespace ClanManager.Migrations
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     Role = table.Column<string>(nullable: true),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValueSql: "getutcdate()"),
                     ClanId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -88,7 +87,7 @@ namespace ClanManager.Migrations
                     Text = table.Column<string>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     Unread = table.Column<bool>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValueSql: "getutcdate()"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -110,8 +109,8 @@ namespace ClanManager.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(nullable: false),
                     ImgUrl = table.Column<string>(nullable: true),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValueSql: "getutcdate()"),
-                    UpdateAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
                     ClanId = table.Column<int>(nullable: false)
                 },
@@ -140,8 +139,8 @@ namespace ClanManager.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Reason = table.Column<string>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    ClanId = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValueSql: "getutcdate()")
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    ClanId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

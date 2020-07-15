@@ -88,7 +88,7 @@ const ClanNav: React.FC<Props> = (props) => {
     const [clan, setClan] = React.useState<Clan | null>(null);
     const classes = useStyles();
     const history = useHistory();
-    const [value, setValue] = React.useState<number>(5);
+    const [value, setValue] = React.useState<number>(4);
 
     const handleChange = (newValue: number) => {
         setValue(newValue);

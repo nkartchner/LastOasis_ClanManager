@@ -3,7 +3,7 @@ import { images } from "../../icons/Icons";
 import { Stage, Text, Layer, Line, Group, Rect } from "react-konva";
 import { Rect as IRect } from "konva/types/shapes/Rect";
 import { KonvaEventObject } from "konva/types/Node";
-import Portal from "./Portal";
+//import Portal from "./Portal";
 
 const LINE_START = 85 / 2;
 
@@ -48,11 +48,11 @@ const UpgradePlaceholder = ({ x, y }: { x: number; y: number }) => {
                 draggable
             />
             <Text align={"center"} text={"Bone Upgrade"} />
-            <Text
+            {/*<Text
                 offsetY={45}
                 text={`Position: X:${position.x}, Y:${position.y}`}
-            />
-            <Portal>
+            />*/}
+            {/* <Portal>
                 <label>Offset X:</label>
                 <input
                     style={{
@@ -104,7 +104,7 @@ const UpgradePlaceholder = ({ x, y }: { x: number; y: number }) => {
                 <button type="button" onClick={handleReset}>
                     Reset
                 </button>
-            </Portal>
+            </Portal> */}
         </Group>
     );
 };
@@ -209,11 +209,11 @@ const TechTreeKonva = () => {
                         stroke="lightblue"
                         strokeWidth={4}
                     />
-                    {/* <images.BaseWingsIcon x={275} y={290} /> */}
+                    {/* <UpgradePlaceholder x={275} y={290} /> */}
+                    <images.BaseWingsIcon x={275} y={290} />
                     <images.BaseWingsIcon x={400} y={290} />
                     <images.BaseWingsIcon x={525} y={290} />
                     {/* Load dingy on this line */}
-                    <UpgradePlaceholder x={275} y={290} />
                     <Group>
                         {images.WalkerIcon}
                         {images.FireflyWalkerIcon}

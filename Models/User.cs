@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ClanManager.Data.Attributes;
 
 namespace ClanManager.Models
 {
@@ -23,16 +24,16 @@ namespace ClanManager.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [NotMapped]
-        [Compare("Password", ErrorMessage = "Passwords do not match")]
-        public string ConfirmPassword { get; set; }
-        [NotMapped]
-        public string Token { get; set; }
         public string Role { get; set; }
         public DateTime CreatedAt { get; }
         public int? ClanId { get; set; }
         public Clan Clan { get; set; }
 
+        [NotMapped]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        public string ConfirmPassword { get; set; }
+        [NotMapped]
+        public string Token { get; set; }
 
         // public static User WithoutPassword(this User user)
         // {

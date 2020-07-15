@@ -1,40 +1,52 @@
 using ClanManager.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ClanManager.Data
 {
     public class ClanManagerDbContext : DbContext
     {
         public ClanManagerDbContext(DbContextOptions options) : base(options) { }
-        protected override void OnModelCreating(ModelBuilder ModelBuilder)
+        protected override void OnModelCreating(ModelBuilder Builder)
         {
-            base.OnModelCreating(ModelBuilder);
+            //base.OnModelCreating(Builder);
 
-            ModelBuilder.Entity<Clan>()
-                .Property(b => b.CreatedAt)
-                .HasDefaultValueSql("getutcdate()");
+            //Builder.Entity<User>()
+            //       .Property(u => u.CreatedAt)
+            //       .HasDefaultValueSql("getutcdate()");
 
-            ModelBuilder.Entity<User>()
-                .Property(u => u.CreatedAt)
-                .HasDefaultValueSql("getutcdate()");
+            //Builder.Entity<Post>()
+            //       .Property(u => u.CreatedAt)
+            //       .HasDefaultValueSql("getutcdate()");
 
-            ModelBuilder.Entity<Post>()
-                .Property(u => u.CreatedAt)
-                .HasDefaultValueSql("getutcdate()");
+            //Builder.Entity<RequestToJoin>()
+            //       .Property(u => u.CreatedAt)
+            //       .HasDefaultValueSql("getutcdate()");
 
-            ModelBuilder.Entity<RequestToJoin>()
-                .Property(u => u.CreatedAt)
-                .HasDefaultValueSql("getutcdate()");
+            //Builder.Entity<Notification>()
+            //       .Property(u => u.CreatedAt)
+            //       .HasDefaultValueSql("getutcdate()");
 
-            ModelBuilder.Entity<Notification>()
-                .Property(u => u.CreatedAt)
-                .HasDefaultValueSql("getutcdate()");
+            Builder.Entity<Clan>()
+                   .Property(b => b.UpdatedAt)
+                   .ValueGeneratedOnAddOrUpdate();
 
-            ModelBuilder.Entity<Clan>()
-                .HasMany<Allegiance>()
-                .WithOne(a => a.OtherClan)
-                .HasForeignKey(a => a.ClanId_2)
-                .OnDelete(DeleteBehavior.Restrict);
+
+            Builder.Entity<Clan>()
+                   .Property(b => b.CreatedAt)
+                   .ValueGeneratedOnAdd();
+            
+            Builder.Entity<Clan>().Property(b => b.CreatedAt).Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
+            Builder.Entity<Clan>().Property(b => b.CreatedAt).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            Builder.Entity<Clan>().Property(b => b.UpdatedAt).Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
+            Builder.Entity<Clan>().Property(b => b.UpdatedAt).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+
+            Builder.Entity<Clan>()
+                   .HasMany<Allegiance>()
+                   .WithOne(a => a.OtherClan)
+                   .HasForeignKey(a => a.ClanId_2)
+                   .OnDelete(DeleteBehavior.Restrict);
+
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Clan> Clans { get; set; }

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using ClanManager.Data.Attributes;
 
 namespace ClanManager.Models
 {

@@ -6,11 +6,11 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import { Allegiance, User } from "../../../models";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
 import TablePagination from "@material-ui/core/TablePagination";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
         width: "100%",
     },
@@ -32,6 +32,15 @@ const useStyles = makeStyles((theme) => ({
     loadingTxt: {
         textAlign: "center",
     },
+    pending: {
+        color: theme.palette.secondary.main
+    },
+    denied: {
+        color: theme.palette.warning.main
+    },
+    allied: {
+        color: theme.palette.success.main
+    }
 }));
 
 interface Props {
@@ -85,21 +94,21 @@ const AllegianceList: React.FC<Props> = ({ allegiances, clanId, user }) => {
                                         <TableCell>
                                             {allegiance.pending ? (
                                                 <span
-                                                    style={{ color: "purple" }}
+                                                    className={classes.pending}
                                                 >
                                                     Pending
                                                 </span>
                                             ) : allegiance.alliedOrNot ? (
                                                 <span
-                                                    style={{ color: "green" }}
+                                                    className={classes.allied}
                                                 >
                                                     Ally
                                                 </span>
                                             ) : (
-                                                <span style={{ color: "red" }}>
-                                                    Enemy
-                                                </span>
-                                            )}
+                                                        <span className={classes.denied}>
+                                                            Enemy
+                                                        </span>
+                                                    )}
                                         </TableCell>
                                     </TableRow>
                                 );

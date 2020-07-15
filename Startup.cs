@@ -1,7 +1,7 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using ClanManager.Models;
 using ClanManager.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 
 namespace ClanManager
@@ -29,14 +30,14 @@ namespace ClanManager
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ClanManagerDbContext>(options =>
-            options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ClanManagerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MsSqlServerConnection")));
             services.AddSession();
             services.AddSignalR();
+
             IConfigurationSection appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             AppSettings AppSettings = appSettingsSection.Get<AppSettings>();
+
             byte[] Key = Encoding.ASCII.GetBytes(AppSettings.Secret);
             services.AddAuthentication(options =>
             {
@@ -85,7 +86,7 @@ namespace ClanManager
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-            
+
             app.UseAuthentication();
 
             app.UseHttpsRedirection();
@@ -112,8 +113,8 @@ namespace ClanManager
 
                 if (env.IsDevelopment())
                 {
-                    // spa.UseReactDevelopmentServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:3001");
                 }
             });
         }

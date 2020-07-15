@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using ClanManager.Data.Attributes;
 
 namespace ClanManager.Models
 {
@@ -12,10 +13,10 @@ namespace ClanManager.Models
         public string Reason { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [Required]
         public int ClanId { get; set; }
         public Clan Clan { get; set; }
-        public DateTime CreatedAt { get; set; }
     }
 }
