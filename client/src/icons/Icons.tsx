@@ -308,462 +308,427 @@ import Wooden_window from "./structures/wooden_window.png";
 import Wooden_windows from "./structures/wooden_windows.png";
 import Firefly_Walker_icon from "./walker/Firefly_Walker_icon.png";
 import useImage from "use-image";
-import { Image } from "react-konva";
+import { Image as KonvaImage } from "react-konva";
 
 interface Props {
-    src: string;
-    x: number;
-    y: number;
+  src: string;
+  x: number;
+  y: number;
 }
 
 const IconImage: React.FC<Props> = ({ src, x, y }) => {
-    const [image] = useImage(src);
-    return <Image image={image} height={85} width={85} x={x} y={y} />;
+  const [image] = useImage(src);
+
+  return <KonvaImage image={image} height={85} width={85} x={x} y={y} />;
 };
 
 export const images = {
-    CanyonA: <IconImage x={0} y={0} src={Canyon_A} />,
-    CanyonB: <IconImage x={0} y={0} src={Canyon_B} />,
-    SleepingGiantsA: <IconImage x={0} y={0} src={SleepingGiants_A} />,
-    SleepingGiantsB: <IconImage x={0} y={0} src={SleepingGiants_B} />,
-    BoneBottleIcon: <IconImage x={0} y={0} src={Bone_Bottle_icon} />,
-    CeramicFlaskIcon: <IconImage x={0} y={0} src={Ceramic_Flask_icon} />,
-    SterileBandageIcon: <IconImage x={0} y={0} src={Sterile_Bandage_icon} />,
-    TorqueBatteryIcon: <IconImage x={0} y={0} src={Torque_Battery_icon} />,
-    Wingsuit: <IconImage x={0} y={0} src={wingsuit} />,
-    Bed: <IconImage x={0} y={0} src={bed} />,
-    ClanFlag: <IconImage x={0} y={0} src={clan_flag} />,
-    ClanFlagHanging: <IconImage x={0} y={0} src={clan_flag_hanging} />,
-    ClayBattlements: <IconImage x={0} y={0} src={clay_battlements} />,
-    ClayCorner: <IconImage x={0} y={0} src={clay_corner} />,
-    ClayWall: <IconImage x={0} y={0} src={clay_wall} />,
-    ClothDoor: <IconImage x={0} y={0} src={cloth_door} />,
-    ConcreteCorner: <IconImage x={0} y={0} src={concrete_corner} />,
-    ConcreteDoor: <IconImage x={0} y={0} src={concrete_door} />,
-    ConcreteFoundation: <IconImage x={0} y={0} src={concrete_foundation} />,
-    ConcreteRoof: <IconImage x={0} y={0} src={concrete_roof} />,
-    ConcreteWall: <IconImage x={0} y={0} src={concrete_wall} />,
-    ConcreteWindow: <IconImage x={0} y={0} src={concrete_window} />,
-    DefensiveTower: <IconImage x={0} y={0} src={defensive_tower} />,
-    GuardRail: <IconImage x={0} y={0} src={guard_rail} />,
-    Hammock: <IconImage x={0} y={0} src={hammock} />,
-    RupuSling: <IconImage x={0} y={0} src={rupu_sling} />,
-    SandbagRoof: <IconImage x={0} y={0} src={sandbag_roof} />,
-    SandbagWall: <IconImage x={0} y={0} src={sandbag_wall} />,
-    SandbagWindow: <IconImage x={0} y={0} src={sandbag_window} />,
-    SandBed: <IconImage x={0} y={0} src={sand_bed} />,
-    WalkerBarrierBase: <IconImage x={0} y={0} src={walker_barrier_base} />,
-    WalkerBarrierGate: <IconImage x={0} y={0} src={walker_barrier_gate} />,
-    WoodenBattlements: <IconImage x={0} y={0} src={Wooden_battlements} />,
-    WoodenDoor: <IconImage x={0} y={0} src={Wooden_door} />,
-    WoodenFoundation: <IconImage x={0} y={0} src={Wooden_foundation} />,
-    ForagingPouchIcon: <IconImage x={0} y={0} src={Foraging_Pouch_icon} />,
-    HeavyBackpackIcon: <IconImage x={0} y={0} src={Heavy_Backpack_icon} />,
-    ImprovisedBottle: <IconImage x={0} y={0} src={improvised_bottle} />,
-    LightBackpackIcon: <IconImage x={0} y={0} src={Light_Backpack_icon} />,
-    MakeshiftBottle: <IconImage x={0} y={0} src={makeshift_bottle} />,
-    SplitBoneBottleIcon: <IconImage x={0} y={0} src={Split_Bone_Bottle_icon} />,
-    WoodenHeavyCorner: <IconImage x={0} y={0} src={WoodenHeavy_corner} />,
-    WoodenHeavyDoor: <IconImage x={0} y={0} src={WoodenHeavy_door} />,
-    WoodenHeavyRoof: <IconImage x={0} y={0} src={WoodenHeavy_roof} />,
-    WoodenHeavyWall: <IconImage x={0} y={0} src={WoodenHeavy_wall} />,
-    WoodenHeavyWindow: <IconImage x={0} y={0} src={WoodenHeavy_window} />,
-    WoodenHeavyWindows: <IconImage x={0} y={0} src={WoodenHeavy_windows} />,
-    WoodenLightCorner: <IconImage x={0} y={0} src={WoodenLight_corner} />,
-    WoodenReinforcedDoor: <IconImage x={0} y={0} src={WoodenReinforced_door} />,
-    WoodenReinforcedRoof: <IconImage x={0} y={0} src={WoodenReinforced_roof} />,
-    WoodenReinforcedWall: <IconImage x={0} y={0} src={WoodenReinforced_wall} />,
-    WoodenRoof: <IconImage x={0} y={0} src={Wooden_roof} />,
-    WoodenWall: <IconImage x={0} y={0} src={Wooden_wall} />,
-    WoodenWindow: <IconImage x={0} y={0} src={Wooden_window} />,
-    WoodenWindows: <IconImage x={0} y={0} src={Wooden_windows} />,
-    FireflyWalkerIcon: <IconImage x={150} y={0} src={Firefly_Walker_icon} />,
-    WalkerIcon: <IconImage x={0} y={0} src={walker_icon} />,
-    TechTree: <IconImage x={0} y={0} src={Tech_tree} />,
-    VitaminTreeFULL: <IconImage x={0} y={0} src={Vitamin_Tree_FULL} />,
-    ConstructionIcon: <IconImage x={0} y={0} src={construction_icon} />,
-    CraftingIcon: <IconImage x={0} y={0} src={crafting_icon} />,
-    EquipmentIcon: <IconImage x={0} y={0} src={equipment_icon} />,
-    VitaminsImg: <IconImage x={0} y={0} src={Vitamins} />,
-    VitaminsIcon: <IconImage x={0} y={0} src={vitamins_icon} />,
-    AdvancedFurnaceIcon: <IconImage x={0} y={0} src={Advanced_Furnace_icon} />,
-    AmmoChest: <IconImage x={0} y={0} src={ammo_chest} />,
-    CampfireIcon: <IconImage x={0} y={0} src={Camp_Fire_icon} />,
-    FurnaceIcon: <IconImage x={0} y={0} src={Furnace_icon} />,
-    GiganticChest: <IconImage x={0} y={0} src={gigantic_chest} />,
-    LargeChest: <IconImage x={0} y={0} src={large_chest} />,
-    LargeWaterContainer: <IconImage x={0} y={0} src={large_water_container} />,
-    LumbermillIcon: <IconImage x={0} y={0} src={Lumbermill_icon} />,
-    MediumChest: <IconImage x={0} y={0} src={medium_chest} />,
-    QuarryIcon: <IconImage x={0} y={0} src={Quarry_icon} />,
-    SmallChest: <IconImage x={0} y={0} src={small_chest} />,
-    SmallWaterSack: <IconImage x={0} y={0} src={small_water_sack} />,
-    SoilExcavatorIcon: <IconImage x={0} y={0} src={Soil_Excavator_icon} />,
-    StompingStationIcon: <IconImage x={0} y={0} src={Stomping_Station_icon} />,
-    TorqueWindmillIcon: <IconImage x={0} y={0} src={Torque_Windmill_icon} />,
-    WaterCondenserIcon: <IconImage x={0} y={0} src={Water_Condenser_icon} />,
+  CanyonA: <IconImage x={0} y={0} src={Canyon_A} />,
+  CanyonB: <IconImage x={0} y={0} src={Canyon_B} />,
+  SleepingGiantsA: <IconImage x={0} y={0} src={SleepingGiants_A} />,
+  SleepingGiantsB: <IconImage x={0} y={0} src={SleepingGiants_B} />,
+  BoneBottleIcon: <IconImage x={0} y={0} src={Bone_Bottle_icon} />,
+  CeramicFlaskIcon: <IconImage x={0} y={0} src={Ceramic_Flask_icon} />,
+  SterileBandageIcon: <IconImage x={0} y={0} src={Sterile_Bandage_icon} />,
+  TorqueBatteryIcon: <IconImage x={0} y={0} src={Torque_Battery_icon} />,
+  Wingsuit: <IconImage x={0} y={0} src={wingsuit} />,
+  Bed: <IconImage x={0} y={0} src={bed} />,
+  ClanFlag: <IconImage x={0} y={0} src={clan_flag} />,
+  ClanFlagHanging: <IconImage x={0} y={0} src={clan_flag_hanging} />,
+  ClayBattlements: <IconImage x={0} y={0} src={clay_battlements} />,
+  ClayCorner: <IconImage x={0} y={0} src={clay_corner} />,
+  ClayWall: <IconImage x={0} y={0} src={clay_wall} />,
+  ClothDoor: <IconImage x={0} y={0} src={cloth_door} />,
+  ConcreteCorner: <IconImage x={0} y={0} src={concrete_corner} />,
+  ConcreteDoor: <IconImage x={0} y={0} src={concrete_door} />,
+  ConcreteFoundation: <IconImage x={0} y={0} src={concrete_foundation} />,
+  ConcreteRoof: <IconImage x={0} y={0} src={concrete_roof} />,
+  ConcreteWall: <IconImage x={0} y={0} src={concrete_wall} />,
+  ConcreteWindow: <IconImage x={0} y={0} src={concrete_window} />,
+  DefensiveTower: <IconImage x={0} y={0} src={defensive_tower} />,
+  GuardRail: <IconImage x={0} y={0} src={guard_rail} />,
+  Hammock: <IconImage x={0} y={0} src={hammock} />,
+  RupuSling: <IconImage x={0} y={0} src={rupu_sling} />,
+  SandbagRoof: <IconImage x={0} y={0} src={sandbag_roof} />,
+  SandbagWall: <IconImage x={0} y={0} src={sandbag_wall} />,
+  SandbagWindow: <IconImage x={0} y={0} src={sandbag_window} />,
+  SandBed: <IconImage x={0} y={0} src={sand_bed} />,
+  WalkerBarrierBase: <IconImage x={0} y={0} src={walker_barrier_base} />,
+  WalkerBarrierGate: <IconImage x={0} y={0} src={walker_barrier_gate} />,
+  WoodenBattlements: <IconImage x={0} y={0} src={Wooden_battlements} />,
+  WoodenDoor: <IconImage x={0} y={0} src={Wooden_door} />,
+  WoodenFoundation: <IconImage x={0} y={0} src={Wooden_foundation} />,
+  ForagingPouchIcon: <IconImage x={0} y={0} src={Foraging_Pouch_icon} />,
+  HeavyBackpackIcon: <IconImage x={0} y={0} src={Heavy_Backpack_icon} />,
+  ImprovisedBottle: <IconImage x={0} y={0} src={improvised_bottle} />,
+  LightBackpackIcon: <IconImage x={0} y={0} src={Light_Backpack_icon} />,
+  MakeshiftBottle: <IconImage x={0} y={0} src={makeshift_bottle} />,
+  SplitBoneBottleIcon: <IconImage x={0} y={0} src={Split_Bone_Bottle_icon} />,
+  WoodenHeavyCorner: <IconImage x={0} y={0} src={WoodenHeavy_corner} />,
+  WoodenHeavyDoor: <IconImage x={0} y={0} src={WoodenHeavy_door} />,
+  WoodenHeavyRoof: <IconImage x={0} y={0} src={WoodenHeavy_roof} />,
+  WoodenHeavyWall: <IconImage x={0} y={0} src={WoodenHeavy_wall} />,
+  WoodenHeavyWindow: <IconImage x={0} y={0} src={WoodenHeavy_window} />,
+  WoodenHeavyWindows: <IconImage x={0} y={0} src={WoodenHeavy_windows} />,
+  WoodenLightCorner: <IconImage x={0} y={0} src={WoodenLight_corner} />,
+  WoodenReinforcedDoor: <IconImage x={0} y={0} src={WoodenReinforced_door} />,
+  WoodenReinforcedRoof: <IconImage x={0} y={0} src={WoodenReinforced_roof} />,
+  WoodenReinforcedWall: <IconImage x={0} y={0} src={WoodenReinforced_wall} />,
+  WoodenRoof: <IconImage x={0} y={0} src={Wooden_roof} />,
+  WoodenWall: <IconImage x={0} y={0} src={Wooden_wall} />,
+  WoodenWindow: <IconImage x={0} y={0} src={Wooden_window} />,
+  WoodenWindows: <IconImage x={0} y={0} src={Wooden_windows} />,
+  FireflyWalkerIcon: <IconImage x={150} y={0} src={Firefly_Walker_icon} />,
+  WalkerIcon: <IconImage x={0} y={0} src={walker_icon} />,
+  TechTree: <IconImage x={0} y={0} src={Tech_tree} />,
+  VitaminTreeFULL: <IconImage x={0} y={0} src={Vitamin_Tree_FULL} />,
+  ConstructionIcon: <IconImage x={0} y={0} src={construction_icon} />,
+  CraftingIcon: <IconImage x={0} y={0} src={crafting_icon} />,
+  EquipmentIcon: <IconImage x={0} y={0} src={equipment_icon} />,
+  VitaminsImg: <IconImage x={0} y={0} src={Vitamins} />,
+  VitaminsIcon: <IconImage x={0} y={0} src={vitamins_icon} />,
+  AdvancedFurnaceIcon: <IconImage x={0} y={0} src={Advanced_Furnace_icon} />,
+  AmmoChest: <IconImage x={0} y={0} src={ammo_chest} />,
+  CampfireIcon: <IconImage x={0} y={0} src={Camp_Fire_icon} />,
+  FurnaceIcon: <IconImage x={0} y={0} src={Furnace_icon} />,
+  GiganticChest: <IconImage x={0} y={0} src={gigantic_chest} />,
+  LargeChest: <IconImage x={0} y={0} src={large_chest} />,
+  LargeWaterContainer: <IconImage x={0} y={0} src={large_water_container} />,
+  LumbermillIcon: <IconImage x={0} y={0} src={Lumbermill_icon} />,
+  MediumChest: <IconImage x={0} y={0} src={medium_chest} />,
+  QuarryIcon: <IconImage x={0} y={0} src={Quarry_icon} />,
+  SmallChest: <IconImage x={0} y={0} src={small_chest} />,
+  SmallWaterSack: <IconImage x={0} y={0} src={small_water_sack} />,
+  SoilExcavatorIcon: <IconImage x={0} y={0} src={Soil_Excavator_icon} />,
+  StompingStationIcon: <IconImage x={0} y={0} src={Stomping_Station_icon} />,
+  TorqueWindmillIcon: <IconImage x={0} y={0} src={Torque_Windmill_icon} />,
+  WaterCondenserIcon: <IconImage x={0} y={0} src={Water_Condenser_icon} />,
 
-    BuffaloWalkerIcon: <IconImage x={0} y={0} src={Buffalo_Walker_icon} />,
-    DinghyWalkerIcon: <IconImage x={400} y={-250} src={Dinghy_Walker_icon} />,
-    FalcoWalkerIcon: <IconImage x={0} y={0} src={Falco_Walker_icon} />,
+  BuffaloWalkerIcon: <IconImage x={0} y={0} src={Buffalo_Walker_icon} />,
+  DinghyWalkerIcon: <IconImage x={400} y={-250} src={Dinghy_Walker_icon} />,
+  FalcoWalkerIcon: <IconImage x={0} y={0} src={Falco_Walker_icon} />,
 
-    HornetWalkerIcon: <IconImage x={0} y={0} src={Hornet_Walker_icon} />,
+  HornetWalkerIcon: <IconImage x={0} y={0} src={Hornet_Walker_icon} />,
 
-    Molusk: <IconImage x={0} y={0} src={molusk} />,
-    ProxyWalkerIcon: <IconImage x={0} y={0} src={Proxy_Walker_icon} />,
-    SpiderWalkerIcon: <IconImage x={0} y={0} src={Spider_Walker_icon} />,
-    StilettoWalkerIcon: <IconImage x={0} y={0} src={Stiletto_Walker_icon} />,
-    TitanWalkerIcon: <IconImage x={0} y={0} src={Titan_Walker_icon} />,
-    TobogganWalkerIcon: <IconImage x={0} y={0} src={Toboggan_Walker_icon} />,
-    TuskerWalker: <IconImage x={0} y={0} src={Tusker_walker} />,
-    TuskerWalkerIcon: <IconImage x={0} y={0} src={Tusker_Walker_icon} />,
-    AdvancedHatchetIcon: <IconImage x={0} y={0} src={Advanced_Hatchet_icon} />,
-    AdvancedPickaxeIcon: <IconImage x={0} y={0} src={Advanced_Pickaxe_icon} />,
-    BeatStickIcon: <IconImage x={0} y={0} src={Beat_Stick_icon} />,
-    Bolt: <IconImage x={0} y={0} src={bolt} />,
-    BonespikeSwordIcon: <IconImage x={0} y={0} src={Bonespike_Sword_icon} />,
-    BoneBoltIcon: <IconImage x={0} y={0} src={bone_bolt_icon} />,
-    BoneHarpoon: <IconImage x={0} y={0} src={bone_harpoon} />,
-    BouldercutHandAxe: <IconImage x={0} y={0} src={Bouldercut_Hand_Axe} />,
-    CatapultBoulder: <IconImage x={0} y={0} src={catapult_boulder} />,
-    ChokingCloud: <IconImage x={0} y={0} src={choking_cloud} />,
-    FireBolt: <IconImage x={0} y={0} src={fire_bolt} />,
-    FlintBolt: <IconImage x={0} y={0} src={flint_bolt} />,
-    FlintHarpoon: <IconImage x={0} y={0} src={flint_harpoon} />,
-    GreenDeathBomb: <IconImage x={0} y={0} src={green_death_bomb} />,
-    GunPod: <IconImage x={0} y={0} src={gun_pod} />,
-    GunPodPlating: <IconImage x={0} y={0} src={gun_pod_plating} />,
-    GunPodShell: <IconImage x={0} y={0} src={gun_pod_shell} />,
-    HellfireBolt: <IconImage x={0} y={0} src={hellfire_bolt} />,
-    HullbreakerRock: <IconImage x={0} y={0} src={hullbreaker_rock} />,
-    IronBolt: <IconImage x={0} y={0} src={iron_bolt} />,
-    Iron_Harpoon: <IconImage x={0} y={0} src={iron_harpoon} />,
-    JaggertoothClubIcon: <IconImage x={0} y={0} src={Jaggertooth_Club_icon} />,
-    JaggertoothMaulIcon: <IconImage x={0} y={0} src={Jaggertooth_Maul_icon} />,
-    Javelin: <IconImage x={0} y={0} src={javelin} />,
-    Net: <IconImage x={0} y={0} src={net} />,
-    NibiranHammer: <IconImage x={0} y={0} src={Nibiran_Hammer} />,
-    NibiranHandAxe: <IconImage x={0} y={0} src={Nibiran_Hand_Axe} />,
-    RawboneClubIcon: <IconImage x={0} y={0} src={Rawbone_Club_icon} />,
-    RawboneHandAxeIcon: <IconImage x={0} y={0} src={Rawbone_Hand_Axe_icon} />,
-    RawboneMaulIcon: <IconImage x={0} y={0} src={Rawbone_Maul_icon} />,
-    RupuRock: <IconImage x={0} y={0} src={Rupu_Rock} />,
-    SawtoothSwordIcon: <IconImage x={0} y={0} src={Sawtooth_Sword_icon} />,
-    Scattershot: <IconImage x={0} y={0} src={scattershot} />,
-    ScytheIcon: <IconImage x={0} y={0} src={Scythe_icon} />,
-    SimplePickaxeIcon: <IconImage x={0} y={0} src={Simple_Pickaxe_icon} />,
-    SimpleSickleIcon: <IconImage x={0} y={0} src={Simple_Sickle_icon} />,
-    SingbladeIcon: <IconImage x={0} y={0} src={Singblade_icon} />,
-    SpikeboneClubIcon: <IconImage x={0} y={0} src={Spikebone_Club_icon} />,
-    SpikeboneMaulIcon: <IconImage x={0} y={0} src={Spikebone_Maul_icon} />,
-    SulfurBomb: <IconImage x={0} y={0} src={sulfur_bomb} />,
-    Torch: <IconImage x={0} y={0} src={torch} />,
-    TorchIcon: <IconImage x={0} y={0} src={Torch_icon} />,
-    TravellersStaffIcon: <IconImage x={0} y={0} src={Travellers_Staff_icon} />,
-    WyndanHammer: <IconImage x={0} y={0} src={Wyndan_Hammer} />,
-    WyndanSabreIcon: <IconImage x={0} y={0} src={Wyndan_Sabre_icon} />,
-    WyndanWarhammerIcon: <IconImage x={0} y={0} src={Wyndan_Warhammer_icon} />,
-    BaskwoodArmorIcon: <IconImage x={0} y={0} src={Baskwood_Armor_icon} />,
-    BaskwoodBootsIcon: <IconImage x={0} y={0} src={Baskwood_Boots_icon} />,
-    BaskwoodBracersIcon: <IconImage x={0} y={0} src={Baskwood_Bracers_icon} />,
-    CarapaceArmorIcon: <IconImage x={0} y={0} src={Carapace_Armor_icon} />,
-    CarapaceBootsIcon: <IconImage x={0} y={0} src={Carapace_Boots_icon} />,
-    CloakIcon: <IconImage x={0} y={0} src={Cloak_icon} />,
-    FeatherBootsIcon: <IconImage x={0} y={0} src={Feather_Boots_icon} />,
-    FiberArmWrapsIcon: <IconImage x={0} y={0} src={Fiber_Arm_Wraps_icon} />,
-    FiberHeadwrapIcon: <IconImage x={0} y={0} src={Fiber_Headwrap_icon} />,
-    FiberSandalsIcon: <IconImage x={0} y={0} src={Fiber_Sandals_icon} />,
-    ForestersArmorIcon: <IconImage x={0} y={0} src={Foresters_Armor_icon} />,
-    RupuFurArmorIcon: <IconImage x={0} y={0} src={Rupu_Fur_Armor_icon} />,
-    RupuFurSandalsIcon: <IconImage x={0} y={0} src={Rupu_Fur_Sandals_icon} />,
-    RupuFurSleevesIcon: <IconImage x={0} y={0} src={Rupu_Fur_Sleeves_icon} />,
-    WoodIcon: <IconImage x={0} y={0} src={Wood_icon} />,
-    WoodShaftIcon: <IconImage x={0} y={0} src={Wood_Shaft_icon} />,
-    AloeIcon: <IconImage x={0} y={0} src={Aloe_icon} />,
-    AnimalsTabletIcon: <IconImage x={0} y={0} src={Animals_Tablet_icon} />,
-    AnimalFatIcon: <IconImage x={0} y={0} src={Animal_Fat_icon} />,
-    AppleIcon: <IconImage x={0} y={0} src={Apple_icon} />,
-    AshIcon: <IconImage x={0} y={0} src={Ash_icon} />,
-    BeeswaxIcon: <IconImage x={0} y={0} src={Beeswax_icon} />,
-    BloodTurnipIcon: <IconImage x={0} y={0} src={Blood_Turnip_icon} />,
-    BoneGlueIcon: <IconImage x={0} y={0} src={Bone_Glue_icon} />,
-    BoneSplinterIcon: <IconImage x={0} y={0} src={Bone_Splinter_icon} />,
-    CactusFleshIcon: <IconImage x={0} y={0} src={Cactus_Flesh_icon} />,
-    CattailIcon: <IconImage x={0} y={0} src={Cattail_icon} />,
-    CelestialTabletIcon: <IconImage x={0} y={0} src={Celestial_Tablet_icon} />,
-    CeramicShardIcon: <IconImage x={0} y={0} src={Ceramic_Shard_icon} />,
-    CharcoalIcon: <IconImage x={0} y={0} src={Charcoal_icon} />,
-    ChitinPlateIcon: <IconImage x={0} y={0} src={Chitin_Plate_icon} />,
-    ClayIcon: <IconImage x={0} y={0} src={Clay_icon} />,
-    CornIcon: <IconImage x={0} y={0} src={Corn_icon} />,
-    CottonIcon: <IconImage x={0} y={0} src={Cotton_icon} />,
-    EarthWaxIcon: <IconImage x={0} y={0} src={Earth_Wax_icon} />,
-    ElementsTabletIcon: <IconImage x={0} y={0} src={Elements_Tablet_icon} />,
-    FeatherIcon: <IconImage x={0} y={0} src={Feather_icon} />,
-    FiberIcon: <IconImage x={0} y={0} src={Fiber_icon} />,
-    FiberWeaveIcon: <IconImage x={0} y={0} src={Fiber_Weave_icon} />,
-    FragmentIcon: <IconImage x={0} y={0} src={Fragment_icon} />,
-    Glass: <IconImage x={0} y={0} src={glass} />,
-    Glass_VialIcon: <IconImage x={0} y={0} src={Glass_Vial_icon} />,
-    HideIcon: <IconImage x={0} y={0} src={Hide_icon} />,
-    HugeCactusFruitIcon: <IconImage x={0} y={0} src={Huge_Cactus_Fruit_icon} />,
-    InsectsIcon: <IconImage x={0} y={0} src={Insects_icon} />,
-    IronIngotIcon: <IconImage x={0} y={0} src={Iron_Ingot_icon} />,
-    IronOreIcon: <IconImage x={0} y={0} src={Iron_Ore_icon} />,
-    LiquidFuelIcon: <IconImage x={0} y={0} src={Liquid_Fuel_icon} />,
-    MushroomFleshIcon: <IconImage x={0} y={0} src={Mushroom_Flesh_icon} />,
-    NibiranMineralIcon: <IconImage x={0} y={0} src={Nibiran_Mineral_icon} />,
-    NomadClothIcon: <IconImage x={0} y={0} src={Nomad_Cloth_icon} />,
-    ObsidianIcon: <IconImage x={0} y={0} src={Obsidian_icon} />,
-    PalmLeavesIcon: <IconImage x={0} y={0} src={Palm_Leaves_icon} />,
-    PearlIcon: <IconImage x={0} y={0} src={Pearl_icon} />,
-    PurifiedWaterIcon: <IconImage x={0} y={0} src={Purified_Water_icon} />,
-    RedwoodWoodIcon: <IconImage x={0} y={0} src={Redwood_Wood_icon} />,
-    RedBananaIcon: <IconImage x={0} y={0} src={Red_Banana_icon} />,
-    ReinforcedPlankIcon: <IconImage x={0} y={0} src={Reinforced_Plank_icon} />,
-    RopeIcon: <IconImage x={0} y={0} src={Rope_icon} />,
-    RupuFurIcon: <IconImage x={0} y={0} src={Rupu_Fur_icon} />,
-    RupuGel: <IconImage x={0} y={0} src={rupu_gel} />,
-    RupuGelIcon: <IconImage x={0} y={0} src={Rupu_Gel_icon} />,
-    RupuVineIcon: <IconImage x={0} y={0} src={Rupu_Vine_icon} />,
-    SaltRockIcon: <IconImage x={0} y={0} src={Salt_Rock_icon} />,
-    SandIcon: <IconImage x={0} y={0} src={Sand_icon} />,
-    StoneIcon: <IconImage x={0} y={0} src={Stone_icon} />,
-    SulfurIcon: <IconImage x={0} y={0} src={Sulfur_icon} />,
-    TabletIcon: <IconImage x={0} y={0} src={Tablet_icon} />,
-    TarIcon: <IconImage x={0} y={0} src={Tar_icon} />,
-    ThornberryIcon: <IconImage x={0} y={0} src={Thornberry_icon} />,
-    Torque: <IconImage x={0} y={0} src={torque} />,
-    TorqueIcon: <IconImage x={0} y={0} src={Torque_icon} />,
-    WoodIcon2: <IconImage x={0} y={0} src={Wood_icon2} />,
-    WoodShaftIcon2: <IconImage x={0} y={0} src={Wood_Shaft_icon2} />,
-    WormSilkIcon: <IconImage x={0} y={0} src={Worm_Silk_icon} />,
-    Wormscale: <IconImage x={0} y={0} src={wor_scale} />,
-    LastOasisLogoBlack: <IconImage x={0} y={0} src={Last_Oasis_logo_black} />,
-    LastOasisLogoRed: <IconImage x={0} y={0} src={Last_Oasis_logo_red} />,
-    LastOasisLogoWhite: <IconImage x={0} y={0} src={Last_Oasis_logo_white} />,
-    SectionBackground: <IconImage x={0} y={0} src={SectionBg} />,
-    GifIconOverlay: <IconImage x={0} y={0} src={Gif_icon_overlay} />,
-    MapHelp: <IconImage x={0} y={0} src={map_help} />,
-    PointOfInterest: <IconImage x={0} y={0} src={point_of_interest} />,
-    ArmoryModuleIcon: <IconImage x={0} y={0} src={Armory_Module_icon} />,
-    BullrushModuleIcon: <IconImage x={0} y={0} src={Bullrush_Module_icon} />,
-    CraftsmanModuleIcon: <IconImage x={0} y={0} src={Craftsman_Module_icon} />,
-    ForagingModuleIcon: <IconImage x={0} y={0} src={Foraging_Module_icon} />,
-    FortressModuleIcon: <IconImage x={0} y={0} src={Fortress_Module_icon} />,
-    HearthModuleIcon: <IconImage x={0} y={0} src={Hearth_Module_icon} />,
-    LifeforceModuleIcon: <IconImage x={0} y={0} src={Lifeforce_Module_icon} />,
-    MerchantModuleIcon: <IconImage x={0} y={0} src={Merchant_Module_icon} />,
-    SandyModuleIcon: <IconImage x={0} y={0} src={Sandy_Module_icon} />,
-    ScavengerModuleIcon: <IconImage x={0} y={0} src={Scavenger_Module_icon} />,
-    WateryModuleIcon: <IconImage x={0} y={0} src={Watery_Module_icon} />,
-    BonebreakerIcon: <IconImage x={0} y={0} src={Bonebreaker_icon} />,
-    DesertMuleIcon: <IconImage x={0} y={0} src={Desert_Mule_icon} />,
-    FuryFumesIcon: <IconImage x={0} y={0} src={Fury_Fumes_icon} />,
-    JojoMojoIcon: <IconImage x={0} y={0} src={Jojo_Mojo_icon} />,
-    RaceDustIcon: <IconImage x={0} y={0} src={Race_Dust_icon} />,
-    RupuRepellentIcon: <IconImage x={0} y={0} src={Rupu_Repellent_icon} />,
-    SinusDestroyerIcon: <IconImage x={0} y={0} src={Sinus_Destroyer_icon} />,
-    VisionPowderIcon: <IconImage x={0} y={0} src={Vision_Powder_icon} />,
-    BaseLegsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Base_Legs_icon} />
-    ),
-    BaseWingsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Base_Wings_icon} />
-    ),
-    SmallFastWingsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Small_Fast_Wings_icon} />
-    ),
-    ArmoredLegsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Armored_Legs_icon} />
-    ),
-    HeavyLegsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Heavy_Legs_icon} />
-    ),
-    LargeFastWingsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Large_Fast_Wings_icon} />
-    ),
-    MediumFastWingsIcon: ({ x, y }: { x: number; y: number }) => (
-        <IconImage x={x} y={y} src={Medium_Fast_Wings_icon} />
-    ),
-    WoodenHeavyBattlements: (
-        <IconImage x={0} y={0} src={WoodenHeavy_battlements} />
-    ),
-    DurableWaterSackIcon: (
-        <IconImage x={0} y={0} src={Durable_Water_Sack_icon} />
-    ),
-    LargeGatheringPouchIcon: (
-        <IconImage x={0} y={0} src={Large_Gathering_Pouch_icon} />
-    ),
-    PrimitiveBandageIcon: (
-        <IconImage x={0} y={0} src={Primitive_Bandage_icon} />
-    ),
-    SplitCeramicFlaskIcon: (
-        <IconImage x={0} y={0} src={Split_Ceramic_Flask_icon} />
-    ),
-    SplitDurableWaterSackIcon: (
-        <IconImage x={0} y={0} src={Split_Durable_Water_Sack_icon} />
-    ),
-    WoodenHeavyFoundation: (
-        <IconImage x={0} y={0} src={WoodenHeavy_foundation} />
-    ),
-    WoodenReinforcedBattlements: (
-        <IconImage x={0} y={0} src={WoodenReinforced_battlements} />
-    ),
-    WoodenReinforcedFoundation: (
-        <IconImage x={0} y={0} src={WoodenReinforced_foundation} />
-    ),
-    WoodenReinforcedWindow: (
-        <IconImage x={0} y={0} src={WoodenReinforced_window} />
-    ),
-    WoodenReinforcedWindows: (
-        <IconImage x={0} y={0} src={WoodenReinforced_windows} />
-    ),
-    AdvancedFiberworkingStation: (
-        <IconImage x={0} y={0} src={advanced_fiberworking_station} />
-    ),
-    AdvancedFiberworkingStationIcon: (
-        <IconImage x={0} y={0} src={Advanced_Fiberworking_Station_icon} />
-    ),
-    AdvancedWoodworkingStationIcon: (
-        <IconImage x={0} y={0} src={Advanced_Woodworking_Station_icon} />
-    ),
-    ArtificerWoodworkingStationIcon: (
-        <IconImage x={0} y={0} src={Artificer_Woodworking_Station_icon} />
-    ),
-    FiberworkingStationIcon: (
-        <IconImage x={0} y={0} src={Fiberworking_Station_icon} />
-    ),
-    GrapplingBeltChargingStation: (
-        <IconImage x={0} y={0} src={grappling_belt_charging_station} />
-    ),
-    MediumWaterContainer: (
-        <IconImage x={0} y={0} src={medium_water_container} />
-    ),
-    PurificationStationIcon: (
-        <IconImage x={0} y={0} src={Purification_Station_icon} />
-    ),
-    WoodworkingStationIcon: (
-        <IconImage x={0} y={0} src={Woodworking_Station_icon} />
-    ),
-    SchmetterlingWalkerIcon: (
-        <IconImage x={0} y={0} src={Schmetterling_Walker_icon} />
-    ),
-    BluntQuarterstaffIcon: (
-        <IconImage x={0} y={0} src={Blunt_Quarterstaff_icon} />
-    ),
-    BouldercutBattleAxeIcon: (
-        <IconImage x={0} y={0} src={Bouldercut_Battle_Axe_icon} />
-    ),
-    HeavyRawboneHandAxeIcon: (
-        <IconImage x={0} y={0} src={Heavy_Rawbone_Hand_Axe_icon} />
-    ),
-    HullbreakerScattershot: (
-        <IconImage x={0} y={0} src={hullbreaker_scattershot} />
-    ),
-    IronbladeQuarterstaffIcon: (
-        <IconImage x={0} y={0} src={Ironblade_Quarterstaff_icon} />
-    ),
-    LongBonespikeSwordstaffIcon: (
-        <IconImage x={0} y={0} src={Long_Bonespike_Swordstaff_icon} />
-    ),
-    LongCeramicHoofmaceIcon: (
-        <IconImage x={0} y={0} src={Long_Ceramic_Hoofmace_icon} />
-    ),
-    NibiranBattleAxeIcon: (
-        <IconImage x={0} y={0} src={Nibiran_Battle_Axe_icon} />
-    ),
-    NibiranCurvedDaggerIcon: (
-        <IconImage x={0} y={0} src={Nibiran_Curved_Dagger_icon} />
-    ),
-    NibiranDecapitatorIcon: (
-        <IconImage x={0} y={0} src={Nibiran_Decapitator_icon} />
-    ),
-    NibiranQuarterstaffIcon: (
-        <IconImage x={0} y={0} src={Nibiran_Quarterstaff_icon} />
-    ),
-    NibiranWarhammerIcon: (
-        <IconImage x={0} y={0} src={Nibiran_Warhammer_icon} />
-    ),
-    PaddlebladeQuarterstaffIcon: (
-        <IconImage x={0} y={0} src={Paddleblade_Quarterstaff_icon} />
-    ),
-    RawboneBattleAxeIcon: (
-        <IconImage x={0} y={0} src={Rawbone_Battle_Axe_icon} />
-    ),
-    RawboneQuarterstaffIcon: (
-        <IconImage x={0} y={0} src={Rawbone_Quarterstaff_icon} />
-    ),
-    ShortCeramicHoofmace: (
-        <IconImage x={0} y={0} src={Short_Ceramic_Hoofmace} />
-    ),
-    ShortMalletbladeIcon: (
-        <IconImage x={0} y={0} src={Short_Malletblade_icon} />
-    ),
-    SimpleRepairHammerIcon: (
-        <IconImage x={0} y={0} src={Simple_Repair_Hammer_icon} />
-    ),
-    WoodcuttersHatchetIcon: (
-        <IconImage x={0} y={0} src={Woodcutters_Hatchet_icon} />
-    ),
-    WyndanbladeQuarterstaffIcon: (
-        <IconImage x={0} y={0} src={Wyndanblade_Quarterstaff_icon} />
-    ),
-    WyndanFlameSwordIcon: (
-        <IconImage x={0} y={0} src={Wyndan_Flame_Sword_icon} />
-    ),
-    BrittleBoneArmorIcon: (
-        <IconImage x={0} y={0} src={Brittle_Bone_Armor_icon} />
-    ),
-    CarapaceGauntletsIcon: (
-        <IconImage x={0} y={0} src={Carapace_Gauntlets_icon} />
-    ),
-    CloakedRupuFurArmorIcon: (
-        <IconImage x={0} y={0} src={Cloaked_Rupu_Fur_Armor_icon} />
-    ),
-    FiberShirtAndTrousersIcon: (
-        <IconImage x={0} y={0} src={Fiber_Shirt_and_Trousers_icon} />
-    ),
-    ForestersSandalsIcon: (
-        <IconImage x={0} y={0} src={Foresters_Sandals_icon} />
-    ),
-    ForestersSleevesIcon: (
-        <IconImage x={0} y={0} src={Foresters_Sleeves_icon} />
-    ),
-    IronStuddedArmorIcon: (
-        <IconImage x={0} y={0} src={Iron_Studded_Armor_icon} />
-    ),
-    IronStuddedBootsIcon: (
-        <IconImage x={0} y={0} src={Iron_Studded_Boots_icon} />
-    ),
-    IronStuddedGauntletsIcon: (
-        <IconImage x={0} y={0} src={Iron_Studded_Gauntlets_icon} />
-    ),
-    RedwoodWoodArmorIcon: (
-        <IconImage x={0} y={0} src={Redwood_Wood_Armor_icon} />
-    ),
-    RedwoodWoodBootsIcon: (
-        <IconImage x={0} y={0} src={Redwood_Wood_Boots_icon} />
-    ),
-    RedwoodWoodBracersIcon: (
-        <IconImage x={0} y={0} src={Redwood_Wood_Bracers_icon} />
-    ),
-    TripleStitchArmorIcon: (
-        <IconImage x={0} y={0} src={Triple_Stitch_Armor_icon} />
-    ),
-    TripleStitchBootsIcon: (
-        <IconImage x={0} y={0} src={Triple_Stitch_Boots_icon} />
-    ),
-    TripleStitchBracersIcon: (
-        <IconImage x={0} y={0} src={Triple_Stitch_Bracers_icon} />
-    ),
-    ContaminatedWaterIcon: (
-        <IconImage x={0} y={0} src={Contaminated_Water_icon} />
-    ),
-    ShatteredFragmentIcon: (
-        <IconImage x={0} y={0} src={Shattered_Fragment_icon} />
-    ),
-    LumberjackModuleIcon: (
-        <IconImage x={0} y={0} src={Lumberjack_Module_icon} />
-    ),
+  Molusk: <IconImage x={0} y={0} src={molusk} />,
+  ProxyWalkerIcon: <IconImage x={0} y={0} src={Proxy_Walker_icon} />,
+  SpiderWalkerIcon: <IconImage x={0} y={0} src={Spider_Walker_icon} />,
+  StilettoWalkerIcon: <IconImage x={0} y={0} src={Stiletto_Walker_icon} />,
+  TitanWalkerIcon: <IconImage x={0} y={0} src={Titan_Walker_icon} />,
+  TobogganWalkerIcon: <IconImage x={0} y={0} src={Toboggan_Walker_icon} />,
+  TuskerWalker: <IconImage x={0} y={0} src={Tusker_walker} />,
+  TuskerWalkerIcon: <IconImage x={0} y={0} src={Tusker_Walker_icon} />,
+  AdvancedHatchetIcon: <IconImage x={0} y={0} src={Advanced_Hatchet_icon} />,
+  AdvancedPickaxeIcon: <IconImage x={0} y={0} src={Advanced_Pickaxe_icon} />,
+  BeatStickIcon: <IconImage x={0} y={0} src={Beat_Stick_icon} />,
+  Bolt: <IconImage x={0} y={0} src={bolt} />,
+  BonespikeSwordIcon: <IconImage x={0} y={0} src={Bonespike_Sword_icon} />,
+  BoneBoltIcon: <IconImage x={0} y={0} src={bone_bolt_icon} />,
+  BoneHarpoon: <IconImage x={0} y={0} src={bone_harpoon} />,
+  BouldercutHandAxe: <IconImage x={0} y={0} src={Bouldercut_Hand_Axe} />,
+  CatapultBoulder: <IconImage x={0} y={0} src={catapult_boulder} />,
+  ChokingCloud: <IconImage x={0} y={0} src={choking_cloud} />,
+  FireBolt: <IconImage x={0} y={0} src={fire_bolt} />,
+  FlintBolt: <IconImage x={0} y={0} src={flint_bolt} />,
+  FlintHarpoon: <IconImage x={0} y={0} src={flint_harpoon} />,
+  GreenDeathBomb: <IconImage x={0} y={0} src={green_death_bomb} />,
+  GunPod: <IconImage x={0} y={0} src={gun_pod} />,
+  GunPodPlating: <IconImage x={0} y={0} src={gun_pod_plating} />,
+  GunPodShell: <IconImage x={0} y={0} src={gun_pod_shell} />,
+  HellfireBolt: <IconImage x={0} y={0} src={hellfire_bolt} />,
+  HullbreakerRock: <IconImage x={0} y={0} src={hullbreaker_rock} />,
+  IronBolt: <IconImage x={0} y={0} src={iron_bolt} />,
+  Iron_Harpoon: <IconImage x={0} y={0} src={iron_harpoon} />,
+  JaggertoothClubIcon: <IconImage x={0} y={0} src={Jaggertooth_Club_icon} />,
+  JaggertoothMaulIcon: <IconImage x={0} y={0} src={Jaggertooth_Maul_icon} />,
+  Javelin: <IconImage x={0} y={0} src={javelin} />,
+  Net: <IconImage x={0} y={0} src={net} />,
+  NibiranHammer: <IconImage x={0} y={0} src={Nibiran_Hammer} />,
+  NibiranHandAxe: <IconImage x={0} y={0} src={Nibiran_Hand_Axe} />,
+  RawboneClubIcon: <IconImage x={0} y={0} src={Rawbone_Club_icon} />,
+  RawboneHandAxeIcon: <IconImage x={0} y={0} src={Rawbone_Hand_Axe_icon} />,
+  RawboneMaulIcon: <IconImage x={0} y={0} src={Rawbone_Maul_icon} />,
+  RupuRock: <IconImage x={0} y={0} src={Rupu_Rock} />,
+  SawtoothSwordIcon: <IconImage x={0} y={0} src={Sawtooth_Sword_icon} />,
+  Scattershot: <IconImage x={0} y={0} src={scattershot} />,
+  ScytheIcon: <IconImage x={0} y={0} src={Scythe_icon} />,
+  SimplePickaxeIcon: <IconImage x={0} y={0} src={Simple_Pickaxe_icon} />,
+  SimpleSickleIcon: <IconImage x={0} y={0} src={Simple_Sickle_icon} />,
+  SingbladeIcon: <IconImage x={0} y={0} src={Singblade_icon} />,
+  SpikeboneClubIcon: <IconImage x={0} y={0} src={Spikebone_Club_icon} />,
+  SpikeboneMaulIcon: <IconImage x={0} y={0} src={Spikebone_Maul_icon} />,
+  SulfurBomb: <IconImage x={0} y={0} src={sulfur_bomb} />,
+  Torch: <IconImage x={0} y={0} src={torch} />,
+  TorchIcon: <IconImage x={0} y={0} src={Torch_icon} />,
+  TravellersStaffIcon: <IconImage x={0} y={0} src={Travellers_Staff_icon} />,
+  WyndanHammer: <IconImage x={0} y={0} src={Wyndan_Hammer} />,
+  WyndanSabreIcon: <IconImage x={0} y={0} src={Wyndan_Sabre_icon} />,
+  WyndanWarhammerIcon: <IconImage x={0} y={0} src={Wyndan_Warhammer_icon} />,
+  BaskwoodArmorIcon: <IconImage x={0} y={0} src={Baskwood_Armor_icon} />,
+  BaskwoodBootsIcon: <IconImage x={0} y={0} src={Baskwood_Boots_icon} />,
+  BaskwoodBracersIcon: <IconImage x={0} y={0} src={Baskwood_Bracers_icon} />,
+  CarapaceArmorIcon: <IconImage x={0} y={0} src={Carapace_Armor_icon} />,
+  CarapaceBootsIcon: <IconImage x={0} y={0} src={Carapace_Boots_icon} />,
+  CloakIcon: <IconImage x={0} y={0} src={Cloak_icon} />,
+  FeatherBootsIcon: <IconImage x={0} y={0} src={Feather_Boots_icon} />,
+  FiberArmWrapsIcon: <IconImage x={0} y={0} src={Fiber_Arm_Wraps_icon} />,
+  FiberHeadwrapIcon: <IconImage x={0} y={0} src={Fiber_Headwrap_icon} />,
+  FiberSandalsIcon: <IconImage x={0} y={0} src={Fiber_Sandals_icon} />,
+  ForestersArmorIcon: <IconImage x={0} y={0} src={Foresters_Armor_icon} />,
+  RupuFurArmorIcon: <IconImage x={0} y={0} src={Rupu_Fur_Armor_icon} />,
+  RupuFurSandalsIcon: <IconImage x={0} y={0} src={Rupu_Fur_Sandals_icon} />,
+  RupuFurSleevesIcon: <IconImage x={0} y={0} src={Rupu_Fur_Sleeves_icon} />,
+  WoodIcon: <IconImage x={0} y={0} src={Wood_icon} />,
+  WoodShaftIcon: <IconImage x={0} y={0} src={Wood_Shaft_icon} />,
+  AloeIcon: <IconImage x={0} y={0} src={Aloe_icon} />,
+  AnimalsTabletIcon: <IconImage x={0} y={0} src={Animals_Tablet_icon} />,
+  AnimalFatIcon: <IconImage x={0} y={0} src={Animal_Fat_icon} />,
+  AppleIcon: <IconImage x={0} y={0} src={Apple_icon} />,
+  AshIcon: <IconImage x={0} y={0} src={Ash_icon} />,
+  BeeswaxIcon: <IconImage x={0} y={0} src={Beeswax_icon} />,
+  BloodTurnipIcon: <IconImage x={0} y={0} src={Blood_Turnip_icon} />,
+  BoneGlueIcon: <IconImage x={0} y={0} src={Bone_Glue_icon} />,
+  BoneSplinterIcon: <IconImage x={0} y={0} src={Bone_Splinter_icon} />,
+  CactusFleshIcon: <IconImage x={0} y={0} src={Cactus_Flesh_icon} />,
+  CattailIcon: <IconImage x={0} y={0} src={Cattail_icon} />,
+  CelestialTabletIcon: <IconImage x={0} y={0} src={Celestial_Tablet_icon} />,
+  CeramicShardIcon: <IconImage x={0} y={0} src={Ceramic_Shard_icon} />,
+  CharcoalIcon: <IconImage x={0} y={0} src={Charcoal_icon} />,
+  ChitinPlateIcon: <IconImage x={0} y={0} src={Chitin_Plate_icon} />,
+  ClayIcon: <IconImage x={0} y={0} src={Clay_icon} />,
+  CornIcon: <IconImage x={0} y={0} src={Corn_icon} />,
+  CottonIcon: <IconImage x={0} y={0} src={Cotton_icon} />,
+  EarthWaxIcon: <IconImage x={0} y={0} src={Earth_Wax_icon} />,
+  ElementsTabletIcon: <IconImage x={0} y={0} src={Elements_Tablet_icon} />,
+  FeatherIcon: <IconImage x={0} y={0} src={Feather_icon} />,
+  FiberIcon: <IconImage x={0} y={0} src={Fiber_icon} />,
+  FiberWeaveIcon: <IconImage x={0} y={0} src={Fiber_Weave_icon} />,
+  FragmentIcon: <IconImage x={0} y={0} src={Fragment_icon} />,
+  Glass: <IconImage x={0} y={0} src={glass} />,
+  Glass_VialIcon: <IconImage x={0} y={0} src={Glass_Vial_icon} />,
+  HideIcon: <IconImage x={0} y={0} src={Hide_icon} />,
+  HugeCactusFruitIcon: <IconImage x={0} y={0} src={Huge_Cactus_Fruit_icon} />,
+  InsectsIcon: <IconImage x={0} y={0} src={Insects_icon} />,
+  IronIngotIcon: <IconImage x={0} y={0} src={Iron_Ingot_icon} />,
+  IronOreIcon: <IconImage x={0} y={0} src={Iron_Ore_icon} />,
+  LiquidFuelIcon: <IconImage x={0} y={0} src={Liquid_Fuel_icon} />,
+  MushroomFleshIcon: <IconImage x={0} y={0} src={Mushroom_Flesh_icon} />,
+  NibiranMineralIcon: <IconImage x={0} y={0} src={Nibiran_Mineral_icon} />,
+  NomadClothIcon: <IconImage x={0} y={0} src={Nomad_Cloth_icon} />,
+  ObsidianIcon: <IconImage x={0} y={0} src={Obsidian_icon} />,
+  PalmLeavesIcon: <IconImage x={0} y={0} src={Palm_Leaves_icon} />,
+  PearlIcon: <IconImage x={0} y={0} src={Pearl_icon} />,
+  PurifiedWaterIcon: <IconImage x={0} y={0} src={Purified_Water_icon} />,
+  RedwoodWoodIcon: <IconImage x={0} y={0} src={Redwood_Wood_icon} />,
+  RedBananaIcon: <IconImage x={0} y={0} src={Red_Banana_icon} />,
+  ReinforcedPlankIcon: <IconImage x={0} y={0} src={Reinforced_Plank_icon} />,
+  RopeIcon: <IconImage x={0} y={0} src={Rope_icon} />,
+  RupuFurIcon: <IconImage x={0} y={0} src={Rupu_Fur_icon} />,
+  RupuGel: <IconImage x={0} y={0} src={rupu_gel} />,
+  RupuGelIcon: <IconImage x={0} y={0} src={Rupu_Gel_icon} />,
+  RupuVineIcon: <IconImage x={0} y={0} src={Rupu_Vine_icon} />,
+  SaltRockIcon: <IconImage x={0} y={0} src={Salt_Rock_icon} />,
+  SandIcon: <IconImage x={0} y={0} src={Sand_icon} />,
+  StoneIcon: <IconImage x={0} y={0} src={Stone_icon} />,
+  SulfurIcon: <IconImage x={0} y={0} src={Sulfur_icon} />,
+  TabletIcon: <IconImage x={0} y={0} src={Tablet_icon} />,
+  TarIcon: <IconImage x={0} y={0} src={Tar_icon} />,
+  ThornberryIcon: <IconImage x={0} y={0} src={Thornberry_icon} />,
+  Torque: <IconImage x={0} y={0} src={torque} />,
+  TorqueIcon: <IconImage x={0} y={0} src={Torque_icon} />,
+  WoodIcon2: <IconImage x={0} y={0} src={Wood_icon2} />,
+  WoodShaftIcon2: <IconImage x={0} y={0} src={Wood_Shaft_icon2} />,
+  WormSilkIcon: <IconImage x={0} y={0} src={Worm_Silk_icon} />,
+  Wormscale: <IconImage x={0} y={0} src={wor_scale} />,
+  LastOasisLogoBlack: <IconImage x={0} y={0} src={Last_Oasis_logo_black} />,
+  LastOasisLogoRed: <IconImage x={0} y={0} src={Last_Oasis_logo_red} />,
+  LastOasisLogoWhite: <IconImage x={0} y={0} src={Last_Oasis_logo_white} />,
+  SectionBackground: <IconImage x={0} y={0} src={SectionBg} />,
+  GifIconOverlay: <IconImage x={0} y={0} src={Gif_icon_overlay} />,
+  MapHelp: <IconImage x={0} y={0} src={map_help} />,
+  PointOfInterest: <IconImage x={0} y={0} src={point_of_interest} />,
+  ArmoryModuleIcon: <IconImage x={0} y={0} src={Armory_Module_icon} />,
+  BullrushModuleIcon: <IconImage x={0} y={0} src={Bullrush_Module_icon} />,
+  CraftsmanModuleIcon: <IconImage x={0} y={0} src={Craftsman_Module_icon} />,
+  ForagingModuleIcon: <IconImage x={0} y={0} src={Foraging_Module_icon} />,
+  FortressModuleIcon: <IconImage x={0} y={0} src={Fortress_Module_icon} />,
+  HearthModuleIcon: <IconImage x={0} y={0} src={Hearth_Module_icon} />,
+  LifeforceModuleIcon: <IconImage x={0} y={0} src={Lifeforce_Module_icon} />,
+  MerchantModuleIcon: <IconImage x={0} y={0} src={Merchant_Module_icon} />,
+  SandyModuleIcon: <IconImage x={0} y={0} src={Sandy_Module_icon} />,
+  ScavengerModuleIcon: <IconImage x={0} y={0} src={Scavenger_Module_icon} />,
+  WateryModuleIcon: <IconImage x={0} y={0} src={Watery_Module_icon} />,
+  BonebreakerIcon: <IconImage x={0} y={0} src={Bonebreaker_icon} />,
+  DesertMuleIcon: <IconImage x={0} y={0} src={Desert_Mule_icon} />,
+  FuryFumesIcon: <IconImage x={0} y={0} src={Fury_Fumes_icon} />,
+  JojoMojoIcon: <IconImage x={0} y={0} src={Jojo_Mojo_icon} />,
+  RaceDustIcon: <IconImage x={0} y={0} src={Race_Dust_icon} />,
+  RupuRepellentIcon: <IconImage x={0} y={0} src={Rupu_Repellent_icon} />,
+  SinusDestroyerIcon: <IconImage x={0} y={0} src={Sinus_Destroyer_icon} />,
+  VisionPowderIcon: <IconImage x={0} y={0} src={Vision_Powder_icon} />,
+  BaseLegsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Base_Legs_icon} />
+  ),
+  BaseWingsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Base_Wings_icon} />
+  ),
+  SmallFastWingsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Small_Fast_Wings_icon} />
+  ),
+  ArmoredLegsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Armored_Legs_icon} />
+  ),
+  HeavyLegsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Heavy_Legs_icon} />
+  ),
+  LargeFastWingsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Large_Fast_Wings_icon} />
+  ),
+  MediumFastWingsIcon: ({ x, y }: { x: number; y: number }) => (
+    <IconImage x={x} y={y} src={Medium_Fast_Wings_icon} />
+  ),
+  WoodenHeavyBattlements: (
+    <IconImage x={0} y={0} src={WoodenHeavy_battlements} />
+  ),
+  DurableWaterSackIcon: <IconImage x={0} y={0} src={Durable_Water_Sack_icon} />,
+  LargeGatheringPouchIcon: (
+    <IconImage x={0} y={0} src={Large_Gathering_Pouch_icon} />
+  ),
+  PrimitiveBandageIcon: <IconImage x={0} y={0} src={Primitive_Bandage_icon} />,
+  SplitCeramicFlaskIcon: (
+    <IconImage x={0} y={0} src={Split_Ceramic_Flask_icon} />
+  ),
+  SplitDurableWaterSackIcon: (
+    <IconImage x={0} y={0} src={Split_Durable_Water_Sack_icon} />
+  ),
+  WoodenHeavyFoundation: <IconImage x={0} y={0} src={WoodenHeavy_foundation} />,
+  WoodenReinforcedBattlements: (
+    <IconImage x={0} y={0} src={WoodenReinforced_battlements} />
+  ),
+  WoodenReinforcedFoundation: (
+    <IconImage x={0} y={0} src={WoodenReinforced_foundation} />
+  ),
+  WoodenReinforcedWindow: (
+    <IconImage x={0} y={0} src={WoodenReinforced_window} />
+  ),
+  WoodenReinforcedWindows: (
+    <IconImage x={0} y={0} src={WoodenReinforced_windows} />
+  ),
+  AdvancedFiberworkingStation: (
+    <IconImage x={0} y={0} src={advanced_fiberworking_station} />
+  ),
+  AdvancedFiberworkingStationIcon: (
+    <IconImage x={0} y={0} src={Advanced_Fiberworking_Station_icon} />
+  ),
+  AdvancedWoodworkingStationIcon: (
+    <IconImage x={0} y={0} src={Advanced_Woodworking_Station_icon} />
+  ),
+  ArtificerWoodworkingStationIcon: (
+    <IconImage x={0} y={0} src={Artificer_Woodworking_Station_icon} />
+  ),
+  FiberworkingStationIcon: (
+    <IconImage x={0} y={0} src={Fiberworking_Station_icon} />
+  ),
+  GrapplingBeltChargingStation: (
+    <IconImage x={0} y={0} src={grappling_belt_charging_station} />
+  ),
+  MediumWaterContainer: <IconImage x={0} y={0} src={medium_water_container} />,
+  PurificationStationIcon: (
+    <IconImage x={0} y={0} src={Purification_Station_icon} />
+  ),
+  WoodworkingStationIcon: (
+    <IconImage x={0} y={0} src={Woodworking_Station_icon} />
+  ),
+  SchmetterlingWalkerIcon: (
+    <IconImage x={0} y={0} src={Schmetterling_Walker_icon} />
+  ),
+  BluntQuarterstaffIcon: (
+    <IconImage x={0} y={0} src={Blunt_Quarterstaff_icon} />
+  ),
+  BouldercutBattleAxeIcon: (
+    <IconImage x={0} y={0} src={Bouldercut_Battle_Axe_icon} />
+  ),
+  HeavyRawboneHandAxeIcon: (
+    <IconImage x={0} y={0} src={Heavy_Rawbone_Hand_Axe_icon} />
+  ),
+  HullbreakerScattershot: (
+    <IconImage x={0} y={0} src={hullbreaker_scattershot} />
+  ),
+  IronbladeQuarterstaffIcon: (
+    <IconImage x={0} y={0} src={Ironblade_Quarterstaff_icon} />
+  ),
+  LongBonespikeSwordstaffIcon: (
+    <IconImage x={0} y={0} src={Long_Bonespike_Swordstaff_icon} />
+  ),
+  LongCeramicHoofmaceIcon: (
+    <IconImage x={0} y={0} src={Long_Ceramic_Hoofmace_icon} />
+  ),
+  NibiranBattleAxeIcon: <IconImage x={0} y={0} src={Nibiran_Battle_Axe_icon} />,
+  NibiranCurvedDaggerIcon: (
+    <IconImage x={0} y={0} src={Nibiran_Curved_Dagger_icon} />
+  ),
+  NibiranDecapitatorIcon: (
+    <IconImage x={0} y={0} src={Nibiran_Decapitator_icon} />
+  ),
+  NibiranQuarterstaffIcon: (
+    <IconImage x={0} y={0} src={Nibiran_Quarterstaff_icon} />
+  ),
+  NibiranWarhammerIcon: <IconImage x={0} y={0} src={Nibiran_Warhammer_icon} />,
+  PaddlebladeQuarterstaffIcon: (
+    <IconImage x={0} y={0} src={Paddleblade_Quarterstaff_icon} />
+  ),
+  RawboneBattleAxeIcon: <IconImage x={0} y={0} src={Rawbone_Battle_Axe_icon} />,
+  RawboneQuarterstaffIcon: (
+    <IconImage x={0} y={0} src={Rawbone_Quarterstaff_icon} />
+  ),
+  ShortCeramicHoofmace: <IconImage x={0} y={0} src={Short_Ceramic_Hoofmace} />,
+  ShortMalletbladeIcon: <IconImage x={0} y={0} src={Short_Malletblade_icon} />,
+  SimpleRepairHammerIcon: (
+    <IconImage x={0} y={0} src={Simple_Repair_Hammer_icon} />
+  ),
+  WoodcuttersHatchetIcon: (
+    <IconImage x={0} y={0} src={Woodcutters_Hatchet_icon} />
+  ),
+  WyndanbladeQuarterstaffIcon: (
+    <IconImage x={0} y={0} src={Wyndanblade_Quarterstaff_icon} />
+  ),
+  WyndanFlameSwordIcon: <IconImage x={0} y={0} src={Wyndan_Flame_Sword_icon} />,
+  BrittleBoneArmorIcon: <IconImage x={0} y={0} src={Brittle_Bone_Armor_icon} />,
+  CarapaceGauntletsIcon: (
+    <IconImage x={0} y={0} src={Carapace_Gauntlets_icon} />
+  ),
+  CloakedRupuFurArmorIcon: (
+    <IconImage x={0} y={0} src={Cloaked_Rupu_Fur_Armor_icon} />
+  ),
+  FiberShirtAndTrousersIcon: (
+    <IconImage x={0} y={0} src={Fiber_Shirt_and_Trousers_icon} />
+  ),
+  ForestersSandalsIcon: <IconImage x={0} y={0} src={Foresters_Sandals_icon} />,
+  ForestersSleevesIcon: <IconImage x={0} y={0} src={Foresters_Sleeves_icon} />,
+  IronStuddedArmorIcon: <IconImage x={0} y={0} src={Iron_Studded_Armor_icon} />,
+  IronStuddedBootsIcon: <IconImage x={0} y={0} src={Iron_Studded_Boots_icon} />,
+  IronStuddedGauntletsIcon: (
+    <IconImage x={0} y={0} src={Iron_Studded_Gauntlets_icon} />
+  ),
+  RedwoodWoodArmorIcon: <IconImage x={0} y={0} src={Redwood_Wood_Armor_icon} />,
+  RedwoodWoodBootsIcon: <IconImage x={0} y={0} src={Redwood_Wood_Boots_icon} />,
+  RedwoodWoodBracersIcon: (
+    <IconImage x={0} y={0} src={Redwood_Wood_Bracers_icon} />
+  ),
+  TripleStitchArmorIcon: (
+    <IconImage x={0} y={0} src={Triple_Stitch_Armor_icon} />
+  ),
+  TripleStitchBootsIcon: (
+    <IconImage x={0} y={0} src={Triple_Stitch_Boots_icon} />
+  ),
+  TripleStitchBracersIcon: (
+    <IconImage x={0} y={0} src={Triple_Stitch_Bracers_icon} />
+  ),
+  ContaminatedWaterIcon: (
+    <IconImage x={0} y={0} src={Contaminated_Water_icon} />
+  ),
+  ShatteredFragmentIcon: (
+    <IconImage x={0} y={0} src={Shattered_Fragment_icon} />
+  ),
+  LumberjackModuleIcon: <IconImage x={0} y={0} src={Lumberjack_Module_icon} />,
 };

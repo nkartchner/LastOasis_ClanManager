@@ -6,55 +6,51 @@ import { Subscription, Subject } from "rxjs";
 import { TimeAgoDefaultClock } from "./TimeAgoClock";
 import { TimeagoDefaultFormatter } from "./TimeAgoFormatter";
 interface Props {
-    date: number;
-    live?: boolean;
+  date: number;
+  live?: boolean;
 }
 
 const TimeAgo: React.FC<Props> = ({ date, live = true }) => {
-    const [timeAgoIntl] = React.useState(new TimeagoIntl());
-    const [formatter] = React.useState(new TimeagoDefaultFormatter());
-    const [clock] = React.useState(new TimeAgoDefaultClock());
-    const [clockSub, setClockSub] = React.useState<Subscription | undefined>();
-    const [intlSubscription, setSub] = React.useState<
-        Subscription | undefined
-    >();
-    const [value, setValue] = React.useState<string>("");
-    const stateChanges = React.useRef<Subject<void>>(new Subject<void>());
+  const [timeAgoIntl] = React.useState(new TimeagoIntl());
+  const [formatter] = React.useState(new TimeagoDefaultFormatter());
+  const [clock] = React.useState(new TimeAgoDefaultClock());
+  const [clockSub, setClockSub] = React.useState<Subscription | undefined>();
+  const [intlSubscription, setSub] = React.useState<Subscription | undefined>();
+  const [value, setValue] = React.useState<string>("");
+  const stateChanges = React.useRef<Subject<void>>(new Subject<void>());
 
-    React.useEffect(() => {
-        const _date = dateParser(date).valueOf();
-        console.log(_date);
-        stateChanges.current.subscribe(() => {
-            const newValue = formatter.format(date);
-            console.log(newValue);
-            setValue(newValue);
-        });
-        setSub(
-            timeAgoIntl.changes.subscribe(() => stateChanges.current.next())
-        );
+  React.useEffect(() => {
+    const _date = dateParser(date).valueOf();
+    console.log(_date);
+    stateChanges.current.subscribe(() => {
+      const newValue = formatter.format(date);
+      console.log(newValue);
+      setValue(newValue);
+    });
+    setSub(timeAgoIntl.changes.subscribe(() => stateChanges.current.next()));
 
-        if (_date) {
-            if (clockSub) {
-                clockSub.unsubscribe();
-                setClockSub(undefined);
-            }
-            setClockSub(
-                clock
-                    .tick(_date)
-                    .pipe(filter(() => live))
-                    .subscribe(() => stateChanges.current.next())
-            );
-        }
-        return () => {
-            stateChanges.current.complete();
-            intlSubscription?.unsubscribe();
-            clockSub?.unsubscribe();
-            setClockSub(undefined);
-            setSub(undefined);
-        };
-    }, [date]);
+    if (_date) {
+      if (clockSub) {
+        clockSub.unsubscribe();
+        setClockSub(undefined);
+      }
+      setClockSub(
+        clock
+          .tick(_date)
+          .pipe(filter(() => live))
+          .subscribe(() => stateChanges.current.next())
+      );
+    }
+    return () => {
+      stateChanges.current.complete();
+      intlSubscription?.unsubscribe();
+      clockSub?.unsubscribe();
+      setClockSub(undefined);
+      setSub(undefined);
+    };
+  }, [date]);
 
-    return <div>{value}</div>;
+  return <div>{value}</div>;
 };
 
 export default TimeAgo;

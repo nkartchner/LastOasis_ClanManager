@@ -30,9 +30,7 @@ namespace ClanManager.Models
         public string Flag { get; set; }
 
         public string Description { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedAt { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime UpdatedAt { get; set; }
 
         public List<User> Members { get; set; }

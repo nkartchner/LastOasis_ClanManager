@@ -4,43 +4,40 @@ import { UserState } from "./user.types";
 import { Selector } from "react-redux";
 import { User } from "../../models";
 
-export * from "./user.reducer";
-export * from "./user.types";
-
 export const selectUserState = (state: ApplicationState): UserState =>
-    state.user!;
+  state.user!;
 
 export const getUser: Selector<ApplicationState, User | null> = createSelector(
-    [selectUserState],
-    (state) => state.user
+  [selectUserState],
+  (state) => state.user
 );
 
 export const selectUser = createSelector([getUser], (user) => user);
 
 export const selectIsAuthenticated: Selector<
-    ApplicationState,
-    boolean
+  ApplicationState,
+  boolean
 > = createSelector<ApplicationState, UserState, boolean>(
-    [selectUserState],
-    (props2) => props2!.isAuthenticated
+  [selectUserState],
+  (props2) => props2!.isAuthenticated
 );
 
 export const selectUserName: Selector<
-    ApplicationState,
-    string | null
+  ApplicationState,
+  string | null
 > = createSelector([getUser], (user) =>
-    user ? `${user.firstName} ${user.lastName}` : null
+  user ? `${user.firstName} ${user.lastName}` : null
 );
 
 export const selectHasClan = createSelector([getUser], (user) =>
-    Boolean(user && user.clanId)
+  Boolean(user && user.clanId)
 );
 
 export const selectClanId = createSelector([getUser], (user) =>
-    user ? user.clanId : null
+  user ? user.clanId : null
 );
 
 export const selectError = createSelector(
-    [selectUserState],
-    (state) => state.error
+  [selectUserState],
+  (state) => state.error
 );

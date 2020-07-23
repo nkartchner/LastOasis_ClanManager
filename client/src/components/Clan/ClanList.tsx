@@ -13,96 +13,85 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TablePagination from "@material-ui/core/TablePagination";
 
 const useStyles = makeStyles({
-    root: {
-        width: "100%",
-    },
+  root: {
+    width: "100%",
+  },
 });
 
 const ClanList: React.FC<RouteComponentProps> = ({ history }) => {
-    const classes = useStyles();
-    const [page, setPage] = React.useState(0);
-    const [clans, setClans] = React.useState<Clan[]>([]);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    React.useEffect(() => {
-        Axios.get<Clan[]>("/api/Clan/All")
-            .then((response) => setClans(response.data))
-            .catch((err) =>
-                console.log("Something went wrong when getting the clans", err)
-            );
-    }, []);
+  const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [clans, setClans] = React.useState<Clan[]>([]);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  React.useEffect(() => {
+    Axios.get<Clan[]>("/api/Clan/All")
+      .then((response) => setClans(response.data))
+      .catch((err) =>
+        console.log("Something went wrong when getting the clans", err)
+      );
+  }, []);
 
-    const handleRedirect = (clanId: number) => () => {
-        history.push(`/clans/${clanId}`);
-    };
+  const handleRedirect = (clanId: number) => () => {
+    history.push(`/clans/${clanId}/posts`);
+  };
 
-    const handleChangePage = (_event: unknown, newPage: number) => {
-        setPage(newPage);
-    };
+  const handleChangePage = (_event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
 
-    const handleChangeRowsPerPage = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
-    };
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
-    return (
-        <Paper className={classes.root}>
-            <TableContainer>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead color="primary">
-                        <TableRow>
-                            <TableCell style={{ minWidth: 170 }}>
-                                Name
-                            </TableCell>
-                            <TableCell style={{ minWidth: 170 }}>
-                                Members
-                            </TableCell>
-                            <TableCell style={{ minWidth: 170 }}>
-                                Allegiances
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {clans
-                            .slice(
-                                page * rowsPerPage,
-                                page * rowsPerPage + rowsPerPage
-                            )
-                            .map((clan) => {
-                                return (
-                                    <TableRow
-                                        hover
-                                        onClick={handleRedirect(clan.id)}
-                                        role="checkbox"
-                                        style={{ backgroundColor: clan.color }}
-                                        tabIndex={-1}
-                                        key={clan.id}
-                                    >
-                                        <TableCell>{clan.name}</TableCell>
-                                        <TableCell>
-                                            {clan.members.length}
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            {clan.allegiances.length}
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
-                component="div"
-                count={clans.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-            />
-        </Paper>
-    );
+  return (
+    <Paper className={classes.root}>
+      <TableContainer>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead color="primary">
+            <TableRow>
+              <TableCell style={{ minWidth: 170 }}>Name</TableCell>
+              <TableCell style={{ minWidth: 170 }}>Members</TableCell>
+              <TableCell style={{ minWidth: 170 }}>Allegiances</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {clans
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((clan) => {
+                return (
+                  <TableRow
+                    hover
+                    onClick={handleRedirect(clan.id)}
+                    role="checkbox"
+                    style={{ backgroundColor: clan.color }}
+                    tabIndex={-1}
+                    key={clan.id}
+                  >
+                    <TableCell>{clan.name}</TableCell>
+                    <TableCell>{clan.members.length}</TableCell>
+                    <TableCell align="right">
+                      {clan.allegiances.length}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={clans.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </Paper>
+  );
 };
 
 export default ClanList;
